@@ -12,7 +12,7 @@
     * L'extension de Python doit être installée dans VS Code pour réussir à executer le programme.
 
 ### Utilisation
-    Exercice 
+    Évaluation de l'apprentissage
 
 ### Support
 
