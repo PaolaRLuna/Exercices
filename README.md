@@ -17,3 +17,13 @@
 ### Support
 
 ### Feuille de route
+
+### Contribution
+
+### Auteurs et reconnaissances
+    Paola Reyes Luna
+    
+### Licence
+    Public
+    
+### État du projet
