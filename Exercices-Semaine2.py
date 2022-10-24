@@ -3,8 +3,6 @@
 # Créer une fonction prenant 4 paramètres et retournant la somme des deux 
 # premiers multipliés par le 3ième et divisé par le 4ème.
 
-from tkinter import N
-from unittest import result
 
 
 def fct (a, b, c, d):
@@ -46,7 +44,9 @@ def modulo(a,b):
     mod = a % b
     return mod 
 n = modulo(103,3)
-print(n)
+#print(n)
+
+
 
 
 
