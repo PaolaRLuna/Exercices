@@ -3,6 +3,10 @@
 # Créer une fonction prenant 4 paramètres et retournant la somme des deux 
 # premiers multipliés par le 3ième et divisé par le 4ème.
 
+from tkinter import N
+from unittest import result
+
+
 def fct (a, b, c, d):
     operation = ((a + b) * c) / d
     return operation
@@ -38,9 +42,13 @@ def function(x,y,z):
 # retournant le modulo de deux nombres(a modulo b).
 #packing unpacking
 
-def modulo(n):
+def modulo(a,b):
     mod = a % b
-    return mod
+    return mod 
+n = modulo(103,3)
+print(n)
+
+
 
 
 
@@ -54,10 +62,10 @@ def modulo(n):
 #  n'est donné, n'effectuez pas de division.
 # packing unpacking
 
-def fonction(n1, n2, n3):
-    def carre(n2 = 0):
-    op_carre = (n1 ** n2)    
+# def fonction(n1, n2, n3):
+#     def carre(n2 = 0):
+#     op_carre = (n1 ** n2)    
 
-    oper = (n1 ** n2) / n3
-    return oper
+#     oper = (n1 ** n2) / n3
+#     return oper
     
