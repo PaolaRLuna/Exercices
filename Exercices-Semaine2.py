@@ -46,12 +46,6 @@ def modulo(a,b):
 n = modulo(103,3)
 #print(n)
 
-
-
-
-
-
-
 # Exercice 9:
 
 # Créer une fonction permettant de faire la puissance d'un nombre 
@@ -62,10 +56,10 @@ n = modulo(103,3)
 #  n'est donné, n'effectuez pas de division.
 # packing unpacking
 
-# def fonction(n1, n2, n3):
-#     def carre(n2 = 0):
-#     op_carre = (n1 ** n2)    
+def fonction(a,b,c):
+    def puissance(a,b = 2):
+        return a ** b
+    result  = puissance(a,b)
+    return result / c
+print(fonction(1,2,3))
 
-#     oper = (n1 ** n2) / n3
-#     return oper
-    
