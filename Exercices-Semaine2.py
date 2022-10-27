@@ -56,10 +56,10 @@ n = modulo(103,3)
 #  n'est donné, n'effectuez pas de division.
 # packing unpacking
 
-def fonction(a,b,c):
-    def puissance(a,b = 2):
-        return a ** b
-    result  = puissance(a,b)
-    return result / c
-print(fonction(1,2,3))
+def fonction(n1,n2,n3 = 1):
+    def puissance(n1,n2 = 2):
+        return n1 ** n2
+    result  = puissance(n1,n2)
+    return result / n3
+print(fonction(1,2))
 
