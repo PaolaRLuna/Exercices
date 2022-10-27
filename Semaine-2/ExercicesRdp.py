@@ -29,12 +29,14 @@ def calcul(fraction1, fraction2):
         den = denum1*denum2
         addition = num / den
         return addition
+    #print(f'float form: {sum()}')
 
     #ad - bc / bd
     def sous(num1, num2, denum1, denum2):
         num = (num1*denum2) - (num2*denum1)
         den = denum1*denum2
         soustraction = num / den
+        print(num)#f'Fraction form: {str(num)} / {str(den)} float form: {soustraction}')
         return soustraction
 
     # ac/bd
@@ -42,6 +44,7 @@ def calcul(fraction1, fraction2):
         num = num1 * num2
         den = denum1 * denum2
         multiplication = num / den
+       # print(f'Fraction form: {str(num)} / {str(den)} float form: {multiplication}')
         return multiplication
 
     # ad/bc
@@ -49,12 +52,19 @@ def calcul(fraction1, fraction2):
         num = num1 * denum2
         den = denum1 * num2
         division = num / den
+        #print(f'Fraction form: {str(num)} / {str(den)} float form: {division}')
         return division
+        
+    #print(f'Fraction form: {str()} / {str(den)}')
     return sum (num1,num2,denum1,denum2), sous(num1,num2,denum1,denum2), produit(num1,num2,denum1,denum2), div(num1,num2,denum1,denum2)
+    
+
+    
 
 fraction1 = 2, 3
 fraction2 = 1, 4
 print(calcul(fraction1,fraction2))
+
         
 # Exercice 1, Partie 3:
 
@@ -62,14 +72,5 @@ print(calcul(fraction1,fraction2))
 
 # Testez vos fonctions avec plusieurs fractions pour vous assurer du bon fonctionnement.
 
-# def calcul(fraction1, fraction2):
-#     addition = fraction1 + fraction2
-#     sous = fraction1 - fraction2
-#     produit = fraction1 * fraction2
-#     div = fraction1 * fraction2
-#     return addition, sous, produit, div
-# fraction1 = 4, 2
-# fraction2 = 8, 2
-# fraction1fl = float(fraction1)
-# fraction2fl = float(fraction2)
-# print(f'Fraction: {(calcul(fraction1,fraction2))}, float: {(calcul(fraction1fl,fraction2fl))}')
+#
+# 
