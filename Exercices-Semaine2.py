@@ -61,5 +61,5 @@ def fonction(n1,n2,n3 = 1):
         return n1 ** n2
     result  = puissance(n1,n2)
     return result / n3
-print(fonction(1,2))
+print(fonction(2,3))
 
