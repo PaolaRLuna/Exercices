@@ -36,7 +36,7 @@ def calcul(fraction1, fraction2):
         num = (num1*denum2) - (num2*denum1)
         den = denum1*denum2
         soustraction = num / den
-        print(num)#f'Fraction form: {str(num)} / {str(den)} float form: {soustraction}')
+       #print(num)#f'Fraction form: {str(num)} / {str(den)} float form: {soustraction}')
         return soustraction
 
     # ac/bd
@@ -52,7 +52,7 @@ def calcul(fraction1, fraction2):
         num = num1 * denum2
         den = denum1 * num2
         division = num / den
-        #print(f'Fraction form: {str(num)} / {str(den)} float form: {division}')
+        
         return division
         
     #print(f'Fraction form: {str()} / {str(den)}')
@@ -64,7 +64,8 @@ def calcul(fraction1, fraction2):
 fraction1 = 2, 3
 fraction2 = 1, 4
 print(calcul(fraction1,fraction2))
-
+print({str(num)) + "/" + str()
+ / {str(den)} float form: {division}')
         
 # Exercice 1, Partie 3:
 
