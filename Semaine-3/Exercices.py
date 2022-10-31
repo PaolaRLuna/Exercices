@@ -14,39 +14,38 @@
 def saison_naissance():
     jour_fete = int(input("Entrer votre jour de fête : "))
     mois_fete = int(input("Entrer votre mois de fête en nombre (ex. oct = 10) : "))
-
+    
     if mois_fete in (1, 2):
-        saison = 'hiver'
+        return "Votre saison est l'hiver"
     elif mois_fete in (4, 5):
-         saison = 'printemps'
-    elif mois_fete in (7,8):
-         saison = 'ete'
+        return "Votre saison est le printemps"
+    elif mois_fete in (7, 8):
+        return "Votre saison est l'ete"
     elif mois_fete in (10, 11):
-         saison = 'automne'
+        return "Votre saison est l'automne"
     else:
         if jour_fete <= 21 and mois_fete == 3:
-            saison = 'hiver'
+            return "Votre saison est l'hiver"
         elif jour_fete > 21 and mois_fete == 3:
-            saison = 'printemps'
+            return "Votre saison est le printemps"
         elif jour_fete <= 21 and mois_fete == 6:
-            saison = 'printemps'
+            return "Votre saison est le printemps"
         elif jour_fete > 21 and mois_fete == 6:
-            saison = 'ete'
+            return "Votre saison est l'ete"
         elif jour_fete <= 21 and mois_fete == 9:
-            saison = 'ete'
+            return "Votre saison est l'ete"
         elif jour_fete > 21 and mois_fete == 9:
-            saison = 'automne'
+            return "Votre saison est l'automne"
         elif jour_fete <= 21 and mois_fete == 12:
-            saison = 'automne'
+            return "Votre saison est l'automne"
         elif jour_fete > 21 and mois_fete == 12:
-            saison = 'hiver'
+            return "Votre saison est l'hiver"
         else:
-            print("Ce n'est pas une date valide")
-    return saison
-saison_naissance()
-print(saison_naissance)
+            return "Ce n'est pas une date valide"
 
-# print(f"Votre saison de naissance est {saison}")
+
+print(saison_naissance())
+
 
     
 
