@@ -36,10 +36,10 @@ resultat = calcul(fraction1, fraction2)
 # Affichez vos résultats sous forme de fraction et sous forme d'un float.
 
 add, sous, mult, div = resultat
-print(f"Addition: \n- Fraction form: {(n1*d2 + d1*n2)}/{(d1 * d2)} ") ; print("- Forme de float: ", add)
-print(f"Soustraction: \n- Fraction form: {(n1*d2 - d1*n2)}/{(d1 * d2)} ") ; print("- Forme de float: ", sous)
-print(f"Multiplication: \n- Fraction form: {(n1 * n2)}/{(d1 * d2)} ") ; print("- Forme de float: ", mult)
-print(f"Division: \n- Fraction  form: {(n1 * d2)}/{(d1 * n2)} ") ; print("- Forme de float: ",div)
+print(f"Addition: \n- Fraction form: {(n1*d2 + d1*n2)}/{(d1 * d2)} \n- Forme de float: ", add)
+print(f"Soustraction: \n- Fraction form: {(n1*d2 - d1*n2)}/{(d1 * d2)} \n- Forme de float: ", sous)
+print(f"Multiplication: \n- Fraction form: {n1 * n2}/{d1 * d2} \n- Forme de float: ", mult)
+print(f"Division: \n- Fraction form: {n1 * d2}/{d1 * n2} \n- Forme de float: ",div)
 
 # Testez vos fonctions avec plusieurs fractions pour vous assurer du bon fonctionnement.
 
