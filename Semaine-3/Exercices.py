@@ -5,9 +5,6 @@
 # phrase suivante: Votre nombre impair est le x, votre nombre pair est le y et le résultat de 
 # leur division est égal à z. Vous ne devez qu'afficher 3 chiffres après le point.
 
-from re import X
-
-
 def type_nombre():
     x = int(input("Entrer un nombre pair ou impair : "))
     y = int(input("Entrer un nombre pair ou impair : "))
