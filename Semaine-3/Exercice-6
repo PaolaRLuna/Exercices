@@ -11,16 +11,32 @@
 
 # Versionner votre travail avec GitHub desktop et publié le sur votre profil GitHub Web une fois terminé.
 
+# Source conversion: https://support.goldensoftware.com/hc/en-us/articles/228362688-Convert-Degrees-Minutes-Seconds-To-Decimal-Degrees-in-Strater
 
-def coordonnees(ss = 0):
-    dd = int(input("Entrer les degres: "))
-    mm = int(input("Entrer les minutes: "))
-    ss = int(input("Entrer les secondes: "))
+def conversion_dd(ss = 0):
+    dd = #int(input("Entrer les degres: "))
+    mm = #int(input("Entrer les minutes: "))
+    ss = #int(input("Entrer les secondes: "))
 
     decimal_degrees = dd + mm/60 + ss/3600
     return decimal_degrees
 
-print(coordonnees())
+#print(conversion_dd())
+def dist_user_pn():
+    lat_user = conversion_dd
+    long_user =
+    PN_LAT = 86.50 #°N
+    PN_LONG = 164.04 #°E
+
+def dist_deux_points(p1, p2):
+    dist = (p1**2 + p2**2) ** 0.5
+    return dist
+
+
+Latitude = #45° 30' 31.9968'' N
+Longitude = 
+
+
 
 
 # Exercice 6:
