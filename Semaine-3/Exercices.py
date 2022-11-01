@@ -6,7 +6,7 @@
 # leur division est égal à z. Vous ne devez qu'afficher 3 chiffres après le point.
 
 def type_nombre():
-    n1, n2 = int(input("Entrer un nombre pair et un nombre impair : ")), int(input())
+    n1, n2 = int(input("Entrer un nombre pair et un nombre impair () : ")), int(input())
     #y = int(input("Entrer un nombre pair ou impair : "))
 
     modulo_n1 = n1 % 2
@@ -17,22 +17,19 @@ def type_nombre():
         return "Vos 2 nombres sont pairs"
     elif modulo_n1 == 1 and modulo_n2 == 1:
         return "Vos 2 nombres sont impairs"
-    else:
-        if modulo_n1 != 1 and modulo_n2 == 1:     #  X being unpair and Y being pair
-            x, y = n1, n2
-            n1, n2 = n2, n1
+    elif modulo_n1 != 1 and modulo_n2 == 1:     #  X being unpair and Y being pair
+        x, y = n1, n2
+        n1, n2 = n2, n1
                         
-            return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
+        return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
         et le resultat de leur division est egal a {z}"
+    elif modulo_n1 != 0 and modulo_n2 == 0: #unpair and pair
+        x, y = n1, n2
+        n1, n2 = n2, n1
 
-        elif modulo_n1 != 0 and modulo_n2 == 0: #unpair and pair
-            x, y = n1, n2
-            n1, n2 = n2, n1
-
-            return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
+        return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
         et le resultat de leur division est egal a {z}"
     
-
 print(type_nombre())
 
 
