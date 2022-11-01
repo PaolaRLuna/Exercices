@@ -32,10 +32,5 @@ def type_nombre():
 
 print(type_nombre())
 
-# Exercice 6:
 
-# En partant de l'exercice du système de géolocation, modifiez votre code pour que les positions 
-# en DMS incluent la direction cardinale(N, S, E, W ou O) et retourne une position en DD pouvant 
-# être négative. Modifiez ensuite votre code pour permettre à un utilisateur de manuellement 
-# rentrer sa position.
 
