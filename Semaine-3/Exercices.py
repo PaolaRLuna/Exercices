@@ -19,16 +19,19 @@ def type_nombre():
         return "Vos 2 nombres sont impairs"
     else:
         if modulo_n1 != 1 and modulo_n2 == 1:     #  X being unpair and Y being pair
-            n1, n2 = (y, x)
-            
+            x, y = n1, n2
+            n1, n2 = n2, n1
+                        
             return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
         et le resultat de leur division est egal a {z}"
+
         elif modulo_n1 != 0 and modulo_n2 == 0: #unpair and pair
-            n1, n2 = x, y 
+            x, y = n1, n2
+            n1, n2 = n2, n1
 
             return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
         et le resultat de leur division est egal a {z}"
-    return
+    
 
 print(type_nombre())
 
