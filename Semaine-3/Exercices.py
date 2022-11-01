@@ -21,14 +21,13 @@ def type_nombre():
         x, y = n1, n2
         n1, n2 = n2, n1
                         
-        return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
-        et le resultat de leur division est egal a {z}"
+        return f"Votre nombre impair est le {x}, votre nombre pair est le {y} \
+et le resultat de leur division est egal a {z:.3f}"
     elif modulo_n1 != 0 and modulo_n2 == 0: #unpair and pair
         x, y = n1, n2
-        n1, n2 = n2, n1
-
-        return f"Votre nombre impair est le {x}, votre nombre pair est le  {y} \
-        et le resultat de leur division est egal a {z}"
+    
+        return f"Votre nombre impair est le {x}, votre nombre pair est le {y} \
+et le resultat de leur division est egal a {z:.3f}"
     
 print(type_nombre())
 
