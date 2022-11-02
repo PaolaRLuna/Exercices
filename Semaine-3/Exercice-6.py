@@ -12,35 +12,39 @@
 # Versionner votre travail avec GitHub desktop et publié le sur votre profil GitHub Web une fois terminé.
 
 # Source conversion: https://support.goldensoftware.com/hc/en-us/articles/228362688-Convert-Degrees-Minutes-Seconds-To-Decimal-Degrees-in-Strater
+# Pole nord étant Point 2
+#User position Point 1
 
-
-def conversion_dd(positiondms):
+def conversion_dd():
     dd, mm, ss = positiondms
-    decimal_degrees = dd + mm/60 + ss/3600
-    return decimal_degrees
+    return dd + mm/60 + ss/3600
+     
 
-#print(conversion_dd())
-def dist_user_pn(position):
-    lat_user = conversion_dd(latitude_dms)
-    long_user = conversion_dd(longitude_dms)
-    PN_LAT = 86.50 #°N
-    PN_LONG = 164.04 #°E
-    latitude_p_user = PN_LAT - lat_user
-    longitude_p_user = PN_LONG - long_user
-    return latitude_p_user, longitude_p_user
 
 def dist_deux_points():
-    distx = x2 - x1
-    disty = y2 - y1
-    dist = (distx**2 + disty**2) ** 0.5
+    # point 1
+    #X1,y1
+
+    lat_user, long_user = conversion_dd(positiondms)
+    x1, y1 = long_user, lat_user
+
+    #x2, y2
+    PN_LAT = 86.50 #°N
+    PN_LONG = 164.04 #°E
+    x2, y2 = PN_LONG, PN_LAT
+
+    dist_x = x2 - x1 
+    dist_y = y2 - y1
+
+    dist = (dist_x**2 + dist_y**2) ** 0.5
     return dist
 
 
 latitude_dms = 45, 30, 31.99 #45° 30' 31.9968'' N
 longitude_dms = 73, 33, 42  #73° 33' 42.0048'' W
-positiondms = Latitude_dms, Longitude_dms
+positiondms = latitude_dms, longitude_dms
 
-
+dist_deux_points()
 
 
 
