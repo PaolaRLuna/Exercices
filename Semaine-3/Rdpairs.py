@@ -8,9 +8,8 @@
 def imc_calcul():
 
     poids = int(input("Entrer votre poids (kg): "))
-    taille = int(input("Entrer votre taille (cm): "))
+    taille = float(input("Entrer votre taille (m): "))
 
-    taille = taille / 100
     imc = poids / taille ** 2
     
     if imc <= 18.5:
@@ -18,8 +17,8 @@ def imc_calcul():
     elif 18.5 < imc < 24.9:
         return f"IMC: {imc:.1f}, vous avez un poids normal"
     elif 25 < imc < 29.9:
-        return f"IMC: {imc:.1f}, vous est en surpoids"
+        return f"IMC: {imc:.1f}, vous êtes en surpoids"
     elif imc > 30:
-        return f"IMC: {imc:.1f}, vous est en obesité"
+        return f"IMC: {imc:.1f}, vous êtes en obesité"
 
 print(imc_calcul())
