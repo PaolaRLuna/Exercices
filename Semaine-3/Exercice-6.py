@@ -15,23 +15,14 @@
 # Pole nord étant Point 2
 #User position Point 1
 
-def conversion_dd():
-    dd, mm, ss = positiondms
+def conversion_dms_dd(dms):  
+    dd, mm, ss = dms
     return dd + mm/60 + ss/3600
      
 
-
-def dist_deux_points():
-    # point 1
-    #X1,y1
-
-    lat_user, long_user = conversion_dd(positiondms)
-    x1, y1 = long_user, lat_user
-
-    #x2, y2
-    PN_LAT = 86.50 #°N
-    PN_LONG = 164.04 #°E
-    x2, y2 = PN_LONG, PN_LAT
+def dist_deux_points(p_user, p_pole_nord):
+    x1, y1 = p_user
+    x2, y2 = p_pole_nord
 
     dist_x = x2 - x1 
     dist_y = y2 - y1
@@ -39,12 +30,25 @@ def dist_deux_points():
     dist = (dist_x**2 + dist_y**2) ** 0.5
     return dist
 
+def distance_PN(position):
+    PN_LAT = 86.50 #°N
+    PN_LONG = 164.04 #°E
+    PN = PN_LAT, PN_LONG
+
+    lat, long = position
+    lat_user_dd = conversion_dms_dd(lat)
+    long_user_dd = conversion_dms_dd(long)
+    position_dd = lat_user_dd, long_user_dd
+
+    return dist_deux_points(PN, position_dd)
+
+
 
 latitude_dms = 45, 30, 31.99 #45° 30' 31.9968'' N
 longitude_dms = 73, 33, 42  #73° 33' 42.0048'' W
-positiondms = latitude_dms, longitude_dms
+position = latitude_dms, longitude_dms
 
-dist_deux_points()
+distance_PN(position)
 
 
 
