@@ -13,28 +13,33 @@
 
 # Source conversion: https://support.goldensoftware.com/hc/en-us/articles/228362688-Convert-Degrees-Minutes-Seconds-To-Decimal-Degrees-in-Strater
 
-def conversion_dd(ss = 0):
-    dd = #int(input("Entrer les degres: "))
-    mm = #int(input("Entrer les minutes: "))
-    ss = #int(input("Entrer les secondes: "))
 
+def conversion_dd(positiondms):
+    dd, mm, ss = positiondms
     decimal_degrees = dd + mm/60 + ss/3600
     return decimal_degrees
 
 #print(conversion_dd())
-def dist_user_pn():
-    lat_user = conversion_dd
-    long_user =
+def dist_user_pn(position):
+    lat_user = conversion_dd(latitude_dms)
+    long_user = conversion_dd(longitude_dms)
     PN_LAT = 86.50 #°N
     PN_LONG = 164.04 #°E
+    latitude_p_user = PN_LAT - lat_user
+    longitude_p_user = PN_LONG - long_user
+    return latitude_p_user, longitude_p_user
 
-def dist_deux_points(p1, p2):
-    dist = (p1**2 + p2**2) ** 0.5
+def dist_deux_points():
+    distx = x2 - x1
+    disty = y2 - y1
+    dist = (distx**2 + disty**2) ** 0.5
     return dist
 
 
-Latitude = #45° 30' 31.9968'' N
-Longitude = 
+latitude_dms = 45, 30, 31.99 #45° 30' 31.9968'' N
+longitude_dms = 73, 33, 42  #73° 33' 42.0048'' W
+positiondms = Latitude_dms, Longitude_dms
+
 
 
 
