@@ -59,3 +59,4 @@ distance_PN(position)
 # être négative. Modifiez ensuite votre code pour permettre à un utilisateur de manuellement 
 # rentrer sa position.
 
+east = [0, 180]
