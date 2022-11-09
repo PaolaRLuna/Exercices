@@ -20,48 +20,40 @@
 
 
 def menu():
-    def input_ciel():
-        user_ciel = input("Entrer l'etat du ciel (ensoleille, nuageux ou eclaircies: ")
-        return user_ciel
-        
-    def input_precip():
-        user_precip = input("Entrer le type de precipitation (aucune, pluie, neige ou verglas: ")
-        return user_precip
-        
-    def input_vent():
-        user_vent = input("Entrer la vitesse du vent en km/h: ")
-        return user_vent
-
-    def input_temp():
-        user_temp = input("Entrer la temperature en C: ")
-        return user_temp
-
-    return input_ciel, input_precip, input_vent, input_temp
-
-print(menu())
-
-# input_ciel = etat_ciel, precip, vent, temp = 
-
-# # tester toujours les fonctions une fois implementé, on peut les imprimés
+    user_ciel = input("Entrer l'etat du ciel (ensoleille, nuageux ou eclaircies): ")
+    user_precip = input("Entrer le type de precipitation (aucune, pluie, neige ou verglas: ")
+    user_vent = float(input("Entrer la vitesse du vent en km/h: "))
+    user_temp = float(input("Entrer la temperature en C: "))
     
-#     def alert(user_ciel, user_precip, user_vent, user_temp):
-#             if user_ciel == "pluie" and user_vent >= 30 :
-#                 return "Alerte meteorologique"
-#             elif user_precip == "verglas":
-#                 return "Alerte"
-#             elif user_ciel == "ensoleille":
-#                 if user_vent >= 70 or -25 < user_temp < 30:
-#                     return "Alerte"
-#             elif user_ciel == "nuageux":
-#                 if user_vent > 50:
-#                     return "Alerte"
-#                 elif user_vent >30 and -20 < user_temp < 25:
-#                     return "Alerte"
-#             elif user_precip == neige and user_temp < -25:
-#                 return "Alerte"
-#             elif user_ciel == "ensoleille":
-#                 if user_vent == 0 and user_temp > 25:
-#                     return "Alerte"
-#     alert()
+    return user_ciel, user_precip, user_vent, user_temp
+
+
+
+
+
+# tester toujours les fonctions une fois implementé, on peut les imprimés
+    
+def alert(user_ciel, user_precip, user_vent, user_temp):
+    if user_ciel == "pluie" and user_vent >= 30 :
+        return "Alerte meteorologique"
+    elif user_precip == "verglas":
+        return "Alerte"
+    elif user_ciel == "ensoleille":
+        if user_vent >= 70 or -25 < user_temp < 30:
+            return "Alerte"
+    elif user_ciel == "nuageux":
+        if user_vent > 50:
+            return "Alerte"
+        elif user_vent >30 and -20 < user_temp < 25:
+            return "Alerte"
+    elif user_precip == "neige" and user_temp < -25:
+        return "Alerte"
+    elif user_ciel == "ensoleille":
+        if user_vent == 0 and user_temp > 25:
+            return "Alerte"
+
+ciel, precip, vent, temp = menu()
+
+print(alert(ciel, precip, vent, temp))
 
 
