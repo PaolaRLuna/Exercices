@@ -66,6 +66,17 @@ def calcul():
         match(operation):
             case("+"):
                 resultat = addition(fraction1, fraction2)
+                return f'Resultat: {resultat}'
+            case("-"):
+                resultat = soustraction(fraction1,fraction2)
+                return resultat
+            case ("*"):
+                resultat = produit(fraction1,fraction2)
+                return resultat
+            case("/"):
+                resultat = division(fraction1,fraction2)
+                return resultat
+
         if operation_type() == addition:
             return fraction1 + fraction2
 
