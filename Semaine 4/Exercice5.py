@@ -16,3 +16,5 @@ def generation():
         print("Generation Z")
     else:
         print("Vous êtes née avant 1946")
+    
+generation()
