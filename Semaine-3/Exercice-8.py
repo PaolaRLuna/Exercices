@@ -40,12 +40,12 @@ resultat = calcul(fraction1, fraction2)
 
 add, sous, mult, div = resultat
 print(
-    f"Addition: \n- Fraction: {(num1*den2 + den1*num2)}/{(den1 * den2)} \n- Float: ", add)
+    f"Addition: \n- Fraction: {(num1*den2 + den1*num2)}/{(den1 * den2)} \n- Float:  {add:.3f}")
 print(
-    f"Soustraction: \n- Fraction: {(num1*den2 - den1*num2)}/{(den1 * den2)} \n- Float: ", sous)
+    f"Soustraction: \n- Fraction: {(num1*den2 - den1*num2)}/{(den1 * den2)} \n- Float: {sous:.3f}")
 print(
-    f"Multiplication: \n- Fraction: {num1 * num2}/{den1 * den2} \n- Float: ", mult)
-print(f"Division: \n- Fraction: {num1 * den2}/{den1 * num2} \n- Float: ", div)
+    f"Multiplication: \n- Fraction: {num1 * num2}/{den1 * den2} \n- Float: {mult:.3f}")
+print(f"Division: \n- Fraction: {num1 * den2}/{den1 * num2} \n- Float: {div:.3f}")
 
 
 # Partie 2:
