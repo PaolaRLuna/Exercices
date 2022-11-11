@@ -22,3 +22,9 @@ print(f"Addition {a}, soustraction {b}, division {c}")
 # writing operation() at the end calls once agan the function,
 # which is not necessary because a,b,c are already calling
 # the function above
+
+# jamais avoir des nombres avant les fonctions, parce qu'elles
+# sont des variables globales, les mettre en bas
+
+# ne pas faire un print dans le return, avoir soit print ou soit return
+# pas besoir d'ajouter un return pour un print dans la fonction

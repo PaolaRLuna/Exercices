@@ -55,47 +55,53 @@
 #Dentro de match en la linea de la indentacion de case se puede imprimir directamente, print(f' etc),
 # Definir cada operacion y desoupes llamar a cada operacion y es importante de habilitar la operacion para un float
 
-def calcul(num1, den1, num2, den2):
+        
+def addition(num1, den1, num2, den2):
+    operation = "1"
+    num = num1*den2 + den1*num2
+    denum = den1 * den2
+    return num/denum, operation
+
+def soustraction(num1, den1, num2, den2):
+    operation = "2"
+    num = num1*den2 - den1*num2
+    denum = den1 * den2
+    return num/denum, operation
+
+def produit(num1, den1, num2, den2):
+    operation = "3"
+    num = num1 * num2
+    denum = den1 * den2
+    return num/denum, operation
+
+def division(num1, den1, num2, den2):
+    operation = "4"
+    num = num1 * den2
+    denum = den1 * num2
+    return num/denum, operation
+
+def calcul(fraction1, fraction2):
+    num1, den1 = fraction1
+    num2, den2 = fraction2
+
+    input_operation(addition(num1, den1, num2, den2))
+    input_operation(soustraction(num1, den1, num2, den2))
+    input(produit(num1, den1, num2, den2))
+    input(division(num1, den1, num2, den2))
     
-    def addition():
-        num = num1*den2 + den1*num2
-        denum = den1 * den2
-        return num/denum
+
+def input_operation(resultat, operation):
     
-    def soustraction():
-        num = num1*den2 - den1*num2
-        denum = den1 * den2
-        return num/denum
-
-    def produit():
-        num = num1 * num2
-        denum = den1 * den2
-        return num/denum
-
-    def division():
-        num = num1 * den2
-        denum = den1 * num2
-        return num/denum
-
-    return addition, soustraction, produit, division
-
-def input_operation(operation, a, b, c, d):
-    #""
-    match(operation, a, b, c, d):
-        case("1"):
-            resultat = a
+    match operation:
+        case "1":
             return resultat
-        case("2"):
-            resultat = b
+        case "2":
             return resultat
-        case ("3"):
-            resultat = c
+        case "3":
             return resultat
-        case("4"):
-            resultat = d
+        case "4":
             return resultat
-    return print(f'The result is {resultat}')
-
+    return f'The result is {resultat}'
 
 
 def user_input():
@@ -112,10 +118,10 @@ def user_input():
     fraction2 = input_fraction()
     return fraction1, fraction2, operation
 
-fraction1, fraction2, operation = user_input()
-num1, den1 = fraction1
-num2, den2 = fraction2
-a, b, c, d = calcul(num1, den1, num2, den2)
+#print(user_input())
 
+fraction1, fraction2, operation = user_input()
+
+print(calcul(fraction1,fraction2))
 
 

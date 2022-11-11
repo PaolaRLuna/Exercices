@@ -7,14 +7,15 @@ def generation():
     year = int(input("Entrer votre année de naissance: "))
 
     if 1946 <= year < 1965:
-        print("Baby-boomer")
+        return "Baby-boomer"
     elif 1965 <= year < 1980:
-        print("Generation X")
+        return "Generation X"
     elif 1980 <= year < 2000:
-        print("Generation Y")
+        return "Generation Y"
     elif year > 2000:
-        print("Generation Z")
+        return "Generation Z"
     else:
-        print("Vous êtes née avant 1946")
+        return "Vous êtes née avant 1946"
     
-generation()
+print(generation())
+
