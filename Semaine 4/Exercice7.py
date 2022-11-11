@@ -20,33 +20,35 @@ def premier():
         print("Votre nombre n'est pas entre 2 et 20")
 
 premier()
+# pas de retourne a faire dans ce cas la
 
-def premier():
-    nombre = int(input("Entrer un nombre entre 2 et 20: "))
 
-    if 2 <= nombre <= 20:
-        if nombre % 2 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 3 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 5 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 7 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 11 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 13 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 17 == 0:
-            print("Votre nombre n'est pas primer")
-        elif nombre % 19 == 0:
-            print("Votre nombre n'est pas primer")
-        else:
-            print("Votre nombre est prime")
-    else:
-        "Votre nombre n'est pas entre 2 et 20"
+# def premier():
+#     nombre = int(input("Entrer un nombre entre 2 et 20: "))
 
-premier()
+#     if 2 <= nombre <= 20:
+#         if nombre % 2 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 3 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 5 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 7 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 11 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 13 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 17 == 0:
+#             print("Votre nombre n'est pas primer")
+#         elif nombre % 19 == 0:
+#             print("Votre nombre n'est pas primer")
+#         else:
+#             print("Votre nombre est prime")
+#     else:
+#         "Votre nombre n'est pas entre 2 et 20"
+
+# premier()
     
     
         
