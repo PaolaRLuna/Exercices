@@ -5,21 +5,21 @@
 
 #Prime number is a number greater than 1, cannot be divided by any other number except 1 and itself.
 
-# def premier():
+def premier():
 
-#     nombre = int(input("Entrer un nombre entre 2 et 20: "))
+    nombre = int(input("Entrer un nombre entre 2 et 20: "))
     
-#     prime = 2, 3, 5, 7, 11, 13, 17, 19
+    prime = 2, 3, 5, 7, 11, 13, 17, 19
 
-#     if 2 <= nombre <= 20:
-#         if nombre in prime:
-#             print("Votre nombre est premier")
-#         else:
-#             print("Votre nombre n'est pas premier")
-#     else:
-#         print("Votre nombre n'est pas entre 2 et 20")
+    if 2 <= nombre <= 20:
+        if nombre in prime:
+            print("Votre nombre est premier")
+        else:
+            print("Votre nombre n'est pas premier")
+    else:
+        print("Votre nombre n'est pas entre 2 et 20")
 
-# premier()
+premier()
 
 def premier():
     nombre = int(input("Entrer un nombre entre 2 et 20: "))

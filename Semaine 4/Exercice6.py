@@ -6,8 +6,8 @@ def parite():
     nombre = int(input("Entrer un entier: "))
 
     if nombre % 2 == 0:
-        print(f"Le nombre {nombre} est pair")
+        return f"Le nombre {nombre} est pair"
     else:
-        print(f"Le nombre {nombre} est impair")
+        return f"Le nombre {nombre} est impair"
 
-parite()
+print(parite())
