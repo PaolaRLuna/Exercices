@@ -22,7 +22,7 @@
 # premier()
 
 def premier():
-    nombre = int(input("Entrer un nombre entre 2 et 20"))
+    nombre = int(input("Entrer un nombre entre 2 et 20: "))
 
     if 2 <= nombre <= 20:
         if nombre % 2 == 0:
