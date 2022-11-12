@@ -55,52 +55,54 @@
 #Dentro de match en la linea de la indentacion de case se puede imprimir directamente, print(f' etc),
 # Definir cada operacion y desoupes llamar a cada operacion y es importante de habilitar la operacion para un float
 
-        
+
 def addition(num1, den1, num2, den2):
-    operation = "1"
     num = num1*den2 + den1*num2
     denum = den1 * den2
-    return num/denum, operation
+    return num/denum
 
 def soustraction(num1, den1, num2, den2):
-    operation = "2"
     num = num1*den2 - den1*num2
     denum = den1 * den2
-    return num/denum, operation
+    return num/denum
 
 def produit(num1, den1, num2, den2):
-    operation = "3"
     num = num1 * num2
     denum = den1 * den2
-    return num/denum, operation
+    return num/denum
 
 def division(num1, den1, num2, den2):
-    operation = "4"
     num = num1 * den2
     denum = den1 * num2
-    return num/denum, operation
+    return num/denum
 
 def calcul(fraction1, fraction2):
     num1, den1 = fraction1
     num2, den2 = fraction2
 
-    input_operation(addition(num1, den1, num2, den2))
-    input_operation(soustraction(num1, den1, num2, den2))
-    input(produit(num1, den1, num2, den2))
-    input(division(num1, den1, num2, den2))
+    o1 = addition(num1, den1, num2, den2)
+    o2 = soustraction(num1, den1, num2, den2)
+    o3 = produit(num1, den1, num2, den2)
+    o4 = division(num1, den1, num2, den2)
+    return o1, o2, o3, o4 
     
 
-def input_operation(resultat, operation):
+def input_operation():
+
+    fraction1, fraction2, operation = user_input()
+    o1, o2, o3, o4 = calcul(fraction1, fraction2)
     
+
     match operation:
         case "1":
-            return resultat
+            resultat = o1
         case "2":
-            return resultat
+            resultat = o2
         case "3":
-            return resultat
+            resultat = o3
         case "4":
-            return resultat
+            resultat = o4
+    
     return f'The result is {resultat}'
 
 
@@ -120,8 +122,6 @@ def user_input():
 
 #print(user_input())
 
-fraction1, fraction2, operation = user_input()
-
-print(calcul(fraction1,fraction2))
+print(input_operation())
 
 
