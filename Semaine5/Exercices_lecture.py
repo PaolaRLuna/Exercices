@@ -125,13 +125,33 @@
 #     print(f"{star:^20}")
 #     i +=2
 
-reponse = input("Entrez un nombre de lignes (entier positif): ")
-N = int(reponse)
+# reponse = input("Entrez un nombre de lignes (entier positif): ")
+# N = int(reponse)
 
-i = 1
-while i <= N*2:
-    star = i * "*"
-    print(f"{star:^20}")
-    i +=2
+# i = 1
+# while i <= N*2:
+#     star = i * "*"
+#     print(f"{star:^20}")
+#     i +=2
 
 #5.4.11
+
+    # s = 0
+    # i = 0.1
+    # while i < 324000:
+    # i = i * 2   
+    # s = s + 1
+    # print(i,s)
+    # print(s)
+
+# v = 100000
+# for i in range(1,11):
+#     v= v*1.01
+#     print(i,v)
+
+v = 100000
+i = 0
+while v < 200000:
+    i = i+1
+    v = v * 1.01
+    print(i,v)
