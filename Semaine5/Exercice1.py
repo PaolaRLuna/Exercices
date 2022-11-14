@@ -4,6 +4,11 @@
 # Pour tester l'exécution de votre programme vous devez créer une liste ayant les positions en DMS d'au moins 10 
 # villes et les placer dans le fichier data.txt.
 
+f = open("Semaine5/coord.txt","r")
+#f.readlines()
+#for line in f.readlines():
+#   line.split(", ")
+
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
     coeff = 1
