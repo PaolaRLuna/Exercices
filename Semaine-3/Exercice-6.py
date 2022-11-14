@@ -16,8 +16,11 @@
 #User position Point 1
 
 def conversion_dms_dd(dms):  
-    dd, mm, ss = dms
-    return dd + mm/60 + ss/3600
+    dd, mm, ss, dir = dms
+    coeff = 1
+    if dir == "S" or dir == "W" or dir == "O":
+        coeff = -1
+    return coeff * (dd + mm/60 + ss/3600)
      
 
 def dist_deux_points(p_user, p_pole_nord):
@@ -42,7 +45,21 @@ def distance_PN(position):
 
     return dist_deux_points(PN, position_dd)
 
+# def input_user():
+#     def input_dms():
+#         deg = int(input("Degrees: "))
+#         min = int(input("Minutes: "))
+#         sec = float(input("Secondes: ")
+#         dir = input("Entrer direction (N, S, E, O): "))
+#         return deg, min, sec, dir
+    
+#     print("Entrer longitude:")
+#     longitude_dms = input_dms()
+#     print("Entrer latitude: ")
+#     latitude_dms = input_dms()
+#     return longitude_dms, latitude_dms
 
+# latitude_dms, longitude_dms = input_user()
 
 latitude_dms = 45, 30, 31.99 #45° 30' 31.9968'' N
 longitude_dms = 73, 33, 42  #73° 33' 42.0048'' W
@@ -58,5 +75,3 @@ distance_PN(position)
 # en DMS incluent la direction cardinale(N, S, E, W ou O) et retourne une position en DD pouvant 
 # être négative. Modifiez ensuite votre code pour permettre à un utilisateur de manuellement 
 # rentrer sa position.
-
-east = [0, 180]
