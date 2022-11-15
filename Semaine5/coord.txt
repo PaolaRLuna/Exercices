@@ -1,4 +1,2 @@
-# lat, long
-New York, 40, 42, 51, N, 74, 0, 21, W
-Austin-Texas, 30, 16, 0, N, 97, 44, 0, W
-
+New-York, 40, 42, 51, N, 74, 0, 21, W, 
+Austin-Texas, 30, 16, 0, N, 97, 44, 0, W, 

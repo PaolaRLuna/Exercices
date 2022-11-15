@@ -4,10 +4,26 @@
 # Pour tester l'exécution de votre programme vous devez créer une liste ayant les positions en DMS d'au moins 10 
 # villes et les placer dans le fichier data.txt.
 
+#https://stackoverflow.com/questions/42376696/converting-specific-elements-in-a-list-of-lists-from-a-string-to-an-integer
+
+
 f = open("Semaine5/coord.txt","r")
-#f.readlines()
-#for line in f.readlines():
-#   line.split(", ")
+
+def read_data():
+    for line in f.readlines():
+        coord = line.split(", ")
+        coord = coord[:-1]
+        conversion_int = []
+        for data in coord:
+            if data.isdigit():
+                data = int(data)
+            conversion_int.append(data)
+            
+        ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = conversion_int
+        latitude_dms = latdd, latmm, latss, latdir
+        longitude_dms = londd, lonmm, lonss, longdir
+        position = ville, latitude_dms, longitude_dms
+        return position
 
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
@@ -32,32 +48,13 @@ def distance_PN(position):
     PN_LONG = 164.04 #°E
     PN = PN_LAT, PN_LONG
 
-    lat, long = position
+    ville, lat, long = position
     lat_user_dd = conversion_dms_dd(lat)
     long_user_dd = conversion_dms_dd(long)
     position_dd = lat_user_dd, long_user_dd
+    return dist_deux_points(PN, position_dd), ville
 
-    return dist_deux_points(PN, position_dd)
+distance, ville = distance_PN(read_data())
+print(f"{ville} {distance:.3f}")
 
-# def input_user():
-#     def input_dms():
-#         deg = int(input("Degrees: "))
-#         min = int(input("Minutes: "))
-#         sec = float(input("Secondes: ")
-#         dir = input("Entrer direction (N, S, E, O): "))
-#         return deg, min, sec, dir
-    
-#     print("Entrer longitude:")
-#     longitude_dms = input_dms()
-#     print("Entrer latitude: ")
-#     latitude_dms = input_dms()
-#     return longitude_dms, latitude_dms
-
-# latitude_dms, longitude_dms = input_user()
-
-latitude_dms = 45, 30, 31.99, "S" #45° 30' 31.9968'' N
-longitude_dms = 73, 33, 42, "O"  #73° 33' 42.0048'' W
-position = latitude_dms, longitude_dms
-
-dist = distance_PN(position)
-print(f"{dist:.3f}")
+f.close()
