@@ -7,23 +7,27 @@
 #https://stackoverflow.com/questions/42376696/converting-specific-elements-in-a-list-of-lists-from-a-string-to-an-integer
 
 
-f = open("Semaine5/coord.txt","r")
+
 
 def read_data():
-    for line in f.readlines():
-        coord = line.split(", ")
-        coord = coord[:-1]
-        conversion_int = []
-        for data in coord:
-            if data.isdigit():
-                data = int(data)
-            conversion_int.append(data)
-            
-        ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = conversion_int
-        latitude_dms = latdd, latmm, latss, latdir
-        longitude_dms = londd, lonmm, lonss, longdir
-        position = ville, latitude_dms, longitude_dms
-        return position
+    with open("Semaine5/coord.txt","r") as file:
+        lines = file.readlines()
+        donnees = []
+        for line in lines:
+            coord = line.split(", ")
+            coord = coord[:-1]
+            conversion_int = []
+            for data in coord:
+                if data.isdigit():
+                    data = int(data)
+                conversion_int.append(data)
+                
+            ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = conversion_int
+            latitude_dms = latdd, latmm, latss, latdir
+            longitude_dms = londd, lonmm, lonss, longdir
+            position = ville, latitude_dms, longitude_dms
+            donnees.append(position)
+    return 
 
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
