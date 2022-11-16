@@ -27,7 +27,7 @@ def read_data():
             longitude_dms = londd, lonmm, lonss, longdir
             position = ville, latitude_dms, longitude_dms
             donnees.append(position)
-    return 
+    return donnees
 
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
