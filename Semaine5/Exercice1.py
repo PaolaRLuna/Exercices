@@ -12,6 +12,7 @@
 def read_data():
     with open("Semaine5/coord.txt","r") as file:
         lines = file.readlines()
+
         donnees = []
         for line in lines:
             coord = line.split(", ")
@@ -21,13 +22,16 @@ def read_data():
                 if data.isdigit():
                     data = int(data)
                 conversion_int.append(data)
-                
-            ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = conversion_int
+            donnees.append(conversion_int) 
+
+        for i in donnees:
+            ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = i
             latitude_dms = latdd, latmm, latss, latdir
             longitude_dms = londd, lonmm, lonss, longdir
             position = ville, latitude_dms, longitude_dms
-            donnees.append(position)
-    return donnees
+        return position
+        
+
 
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
@@ -52,7 +56,7 @@ def distance_PN(position):
     PN_LONG = 164.04 #°E
     PN = PN_LAT, PN_LONG
 
-    ville, lat, long = position
+    ville, lat, long = read_data()
     lat_user_dd = conversion_dms_dd(lat)
     long_user_dd = conversion_dms_dd(long)
     position_dd = lat_user_dd, long_user_dd
@@ -61,4 +65,3 @@ def distance_PN(position):
 distance, ville = distance_PN(read_data())
 print(f"{ville} {distance:.3f}")
 
-f.close()
