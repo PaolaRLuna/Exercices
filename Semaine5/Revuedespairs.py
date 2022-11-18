@@ -14,18 +14,30 @@
 
 #Inspiration: https://stackoverflow.com/questions/31593212/how-to-take-any-number-of-inputs-in-python-without-defining-any-limit
 #https://stackoverflow.com/questions/3011680/take-user-input-and-put-it-into-a-file-in-python
+# https://stackoverflow.com/questions/66333471/read-and-save-list-of-numbers-as-numbers-in-txt-files-in-python
 
-def menu():
+def create_input():
 
     filename = input("Entrer un nom de fichier: ")
-    with open(filename, "") as file:
-        file.write(filename)
-  
-    condition = False
-    while not condition:
-        u_input = input("Entre un nombre: ")
-        inputs = []
-        if u_input == "":
-            condition = True
-        inputs.append(int(u_input))
+    with open(filename, "w") as file:
 
+        inputs = []
+        #condition = False
+        while True:
+            u_input = input("Entre un nombre positif: ")
+
+            if u_input == "":
+                break #condition = True
+            elif int(u_input) > 0:
+                inputs.append(str(u_input))
+            else:
+                True
+
+        delimiter = ","
+        for item in inputs:
+            value = delimiter.join(i for i in item) + "\n"
+            file.write(value)
+
+create_input()
+
+def 
