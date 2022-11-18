@@ -15,6 +15,7 @@
 #Inspiration: https://stackoverflow.com/questions/31593212/how-to-take-any-number-of-inputs-in-python-without-defining-any-limit
 #https://stackoverflow.com/questions/3011680/take-user-input-and-put-it-into-a-file-in-python
 # https://stackoverflow.com/questions/66333471/read-and-save-list-of-numbers-as-numbers-in-txt-files-in-python
+#https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-int
 
 def create_input():
 
@@ -38,6 +39,30 @@ def create_input():
             value = delimiter.join(i for i in item) + "\n"
             file.write(value)
 
-create_input()
+        inputs = [int(i) for i in inputs]
+    return inputs
 
-def 
+
+def croissant(donnees: list[int]):
+
+    donnees_trie = []
+    for donnee in range(len(donnees)):
+        donnee = min(donnees)
+        donnees_trie.append(donnee)
+        donnees.remove(donnee)
+    print(donnees_trie)
+    return donnees_trie
+
+
+def decroissant(donnees: list[int]):
+
+    donnees_decr = []
+    for donnee in range(len(donnees)):
+        donnee = max(donnees)
+        donnees_decr.append(donnee)
+        donnees.remove(donnee)
+    print(donnees_decr)
+    return donnees_decr
+
+donnees = create_input()
+croissant(donnees)
