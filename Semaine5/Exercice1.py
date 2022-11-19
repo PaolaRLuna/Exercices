@@ -51,7 +51,7 @@ def dist_deux_points(p_pole_nord, p_user):
     dist = (dist_x**2 + dist_y**2) ** 0.5
     return dist
 
-def distance_PN(position):
+def distance_PN():
     PN_LAT = 86.50 #°N
     PN_LONG = 164.04 #°E
     PN = PN_LAT, PN_LONG
@@ -62,6 +62,6 @@ def distance_PN(position):
     position_dd = lat_user_dd, long_user_dd
     return dist_deux_points(PN, position_dd), ville
 
-distance, ville = distance_PN(read_data())
+distance, ville = distance_PN()
 print(f"{ville} {distance:.3f}")
 
