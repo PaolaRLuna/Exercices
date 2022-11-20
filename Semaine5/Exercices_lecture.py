@@ -149,9 +149,68 @@
 #     v= v*1.01
 #     print(i,v)
 
-v = 100000
-i = 0
-while v < 200000:
-    i = i+1
-    v = v * 1.01
-    print(i,v)
+# v = 100000
+# i = 0
+# while v < 200000:
+#     i = i+1
+#     v = v * 1.01
+#     print(i,v)
+
+# names = ['Moe', 'Larry', 'Shemp']
+# message = 'The Three Stooges: '
+# for index, name in enumerate(names):
+# 	if index > 0:
+# 		message += ', '
+# 	if index == len(names) - 1:
+# 		message += 'and '
+# 	message += name
+# print(message)
+
+# def croissant(donnees: list[int]):
+
+#     donnees_trie = []
+#     for donnee in range(len(donnees)):
+#         donnee = min(donnees)
+#         donnees_trie.append(donnee)
+#         donnees.remove(donnee)
+#     print(donnees_trie)
+#     return donnees_trie
+
+# def mediane(donnees: list[int]):
+
+#     long_d = len(donnees)
+#     index = (long_d - 1) // 2
+
+#     if long_d % 2 == 0:
+#         return (donnees[index] + donnees[index + 1]) / 2 
+#     else:
+#         return donnees[index]
+
+donnees = [3, 6, 4, 5, 2, 1, 7, 8, 11, 11, 12, 12]
+# print(mediane(donnees))
+
+def mode(donnees: list[int]):
+
+    counts = {}
+    for item in donnees:
+        counts[item] = counts.get(item, 0) + 1
+    maxcount = 0
+    lamode = None
+    for k, v in counts.items():
+        if v > maxcount:
+            lamode = k
+            maxcount = v
+
+    count_val = 0
+    for v in counts.values():
+        if v >= 2:
+            count_val += 1
+        
+    if maxcount == 1:
+        print ("None")
+    elif count_val >= 2:
+        print("List has multiple modes")
+    else:
+        print (f"Mode of the list:", lamode)
+
+mode(donnees)

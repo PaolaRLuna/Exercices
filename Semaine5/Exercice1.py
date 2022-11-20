@@ -23,15 +23,19 @@ def read_data():
                     data = int(data)
                 conversion_int.append(data)
             donnees.append(conversion_int) 
+    return donnees
 
-        for i in donnees:
-            ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = i
-            latitude_dms = latdd, latmm, latss, latdir
-            longitude_dms = londd, lonmm, lonss, longdir
-            position = ville, latitude_dms, longitude_dms
-        return position
+
+def read_city():
+    donnees = read_data()
+    for city in donnees:
+        ville, latdd, latmm, latss, latdir, londd, lonmm, lonss, longdir = city
+        latitude_dms = latdd, latmm, latss, latdir
+        longitude_dms = londd, lonmm, lonss, longdir
+        position = ville, latitude_dms, longitude_dms
+        distance, ville = distance_PN(position)
+        print(f"{ville} {distance:.3f}")
         
-
 
 def conversion_dms_dd(dms):  
     dd, mm, ss, dir = dms
@@ -51,17 +55,16 @@ def dist_deux_points(p_pole_nord, p_user):
     dist = (dist_x**2 + dist_y**2) ** 0.5
     return dist
 
-def distance_PN():
+def distance_PN(position):
     PN_LAT = 86.50 #°N
     PN_LONG = 164.04 #°E
     PN = PN_LAT, PN_LONG
 
-    ville, lat, long = read_data()
+    ville, lat, long = position
     lat_user_dd = conversion_dms_dd(lat)
     long_user_dd = conversion_dms_dd(long)
     position_dd = lat_user_dd, long_user_dd
     return dist_deux_points(PN, position_dd), ville
 
-distance, ville = distance_PN()
-print(f"{ville} {distance:.3f}")
+read_city()
 
