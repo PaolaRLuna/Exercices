@@ -31,7 +31,7 @@ def create_input():
         inputs = []
         #condition = False
         while True:
-            u_input = input("Entre un nombre positif: ")
+            u_input = input("Entrer un nombre positif et taper enter: ")
 
             if u_input == "":
                 break #condition = True
@@ -92,14 +92,15 @@ def minimum(donnees: list[int]):
             min_number = donnee
     return min_number
 
+
 def moyenne(donnees: list[int]):
 
     moyenne = sum(donnees) / len(donnees)
     return moyenne
 
-def mediane():
 
-    donnees = croissant(create_input())
+def mediane(donnees: list[int]):
+
     long_d = len(donnees)
     index = (long_d - 1) // 2
 
@@ -107,6 +108,7 @@ def mediane():
         return (donnees[index] + donnees[index + 1]) / 2
     else:
         return donnees[index]
+
 
 def mode(donnees: list[int]):
 
@@ -116,20 +118,22 @@ def mode(donnees: list[int]):
 
     maxcount = 0
     lamode = None
-    for cle, v in counts.items():
-        if v > maxcount:
+    for cle, val in counts.items():
+        if val > maxcount:
             lamode = cle
-            maxcount = v
+            maxcount = val
 
     count_val = 0
-    for v in counts.values():
+    lesmodes = []
+    for k, v in counts.items():
         if v >= 2:
             count_val += 1
+            lesmodes.append(k)
         
     if maxcount == 1:
         return "None"
     elif count_val >= 2:
-        return "list has multiple modes"
+        return f"multiple modes {lesmodes}"
     else:
         return f"of the list: {lamode}"
 
@@ -144,12 +148,12 @@ def output():
     print(f"Maximum: {maxval}")
     minval = minimum(donnees)
     print(f"Minimum: {minval}")
-    moy = moyenne(donnees)
+    moy = moyenne(croiss)
     print(f"Moyenne: {moy:.2f}")
-    med = mediane()
+    med = mediane(donnees)
     print(f"Mediane: {med}")
     mod = mode(donnees)
-    print(f"Mode: ", mod)
+    print(f"Mode: {mod}")
 
 
 if __name__ == '__main__':
