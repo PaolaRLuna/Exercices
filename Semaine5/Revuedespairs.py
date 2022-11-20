@@ -12,7 +12,8 @@
 # Le mode (l'occurrence la plus fréquente s'il y a lieu. Si chaque entrée est unique, inscrire que le mode = none)
 # Ex: 1, 2, 2, 2, 3, 4, 3, 4. La mode = 2
 
-#Inspiration: https://stackoverflow.com/questions/31593212/how-to-take-any-number-of-inputs-in-python-without-defining-any-limit
+#Inspiration:
+# https://stackoverflow.com/questions/31593212/how-to-take-any-number-of-inputs-in-python-without-defining-any-limit
 #https://stackoverflow.com/questions/3011680/take-user-input-and-put-it-into-a-file-in-python
 # https://stackoverflow.com/questions/66333471/read-and-save-list-of-numbers-as-numbers-in-txt-files-in-python
 #https://stackoverflow.com/questions/7368789/convert-all-strings-in-a-list-to-int
@@ -28,17 +29,16 @@ def create_input():
     filename = input("Entrer un nom de fichier: ")
     with open(filename, "w") as file:
 
+        print("Entrer un nombre positif et taper entrée, pour finir entrer un nombre négatif:")
         inputs = []
-        #condition = False
-        while True:
-            u_input = input("Entrer un nombre positif et taper enter: ")
+        condition = False
+        while not condition:
+            u_input = int(input("Entrer nombre: "))
 
-            if u_input == "":
-                break #condition = True
-            elif int(u_input) > 0:
+            if u_input < 0:
+                condition = True
+            elif u_input > 0:
                 inputs.append(str(u_input))
-            else:
-                True
 
         delimiter = ","
         for item in inputs:
