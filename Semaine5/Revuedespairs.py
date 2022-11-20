@@ -51,7 +51,6 @@ def create_input():
 
 def croissant(donnees: list[int]):
 
-    donnees = create_input()
     for donnee in range(0, len(donnees)-1):
         for item in range(0, len(donnees)- donnee - 1):
             if donnees[item] > donnees[item+1]:
@@ -64,7 +63,6 @@ def croissant(donnees: list[int]):
 
 def decroissant(donnees: list[int]):
 
-    donnees = create_input()
     for donnee in range(0, len(donnees)-1):
         for item in range(0, len(donnees)- donnee - 1):
             if donnees[item] < donnees[item+1]:
@@ -77,7 +75,6 @@ def decroissant(donnees: list[int]):
 
 def maximum(donnees: list[int]):
 
-    donnees = create_input()
     max_number = donnees[0]
 
     for donnee in donnees:
@@ -88,7 +85,6 @@ def maximum(donnees: list[int]):
 
 def minimum(donnees: list[int]):
 
-    donnees = create_input()
     min_number = donnees[0]
     
     for donnee in donnees:
@@ -96,14 +92,14 @@ def minimum(donnees: list[int]):
             min_number = donnee
     return min_number
 
-def moyenne():
-    donnees = create_input()
+def moyenne(donnees: list[int]):
+
     moyenne = sum(donnees) / len(donnees)
     return moyenne
 
 def mediane():
 
-    donnees = croissant()
+    donnees = croissant(create_input())
     long_d = len(donnees)
     index = (long_d - 1) // 2
 
@@ -133,13 +129,27 @@ def mode(donnees: list[int]):
     if maxcount == 1:
         return "None"
     elif count_val >= 2:
-        return "List has multiple modes"
+        return "list has multiple modes"
     else:
-        return f"Mode of the list:", lamode
+        return f"of the list: {lamode}"
+
 
 def output():
-    
-
+    donnees = create_input()
+    croiss = (croissant(donnees))
+    print (f"Liste croissant: {croiss}")
+    decroiss = decroissant(donnees)
+    print(f"Decroissant: {decroiss}")
+    maxval = maximum(donnees)
+    print(f"Maximum: {maxval}")
+    minval = minimum(donnees)
+    print(f"Minimum: {minval}")
+    moy = moyenne(donnees)
+    print(f"Moyenne: {moy:.2f}")
+    med = mediane()
+    print(f"Mediane: {med}")
+    mod = mode(donnees)
+    print(f"Mode: ", mod)
 
 
 if __name__ == '__main__':
