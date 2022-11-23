@@ -103,8 +103,62 @@ def ecart_type(data1, data2, data3):
         ecarts.append(ec_t)
 
     ecart = list(zip(ecarts, equipes))
+
     return ecart
 
-print(ecart_type(read_data1(),read_data2(), read_data3()))
 
-# ecart_type(read_data1(),read_data2(), read_data3())
+def minimum():
+
+    ecarts = ecart_type(read_data1(),read_data2(), read_data3())
+    
+    min_number = ecarts[0]
+
+    for ecart in ecarts:
+        if ecart[0] < min_number[0]:
+            min_number = ecart
+    return min_number
+
+def affichage_homogene():
+    
+    ecart, equipe = minimum()
+    print(f"{equipe}, écart type: {ecart:.3f}")
+
+def menu_utilisateur():
+
+    menu = {1 : "Afficher les statistiques", 
+            2 : "afficher l'équipe la plus homogène",
+            3 : "Ajouter une faute à une équipe", 
+            4 : "Sauvegarder les statistiques",
+            5 : "Sortir" }
+
+    for key, value in menu.items():
+        print(f"{key}.{value}")
+
+    choix_user = int(input("Choisir une option: "))
+    condition = False
+    while not condition:
+        if choix_user == 1:
+            condition = True
+            affichage_homogene()
+        elif choix_user == 3:
+            submenu()
+
+def submenu():
+
+    condition = False
+    while not condition:
+        
+        opt_equipe = ["a", "b", "c"]
+        print("\n SUB MENU")
+        faute_input = input("Écrire lettre de l'équipe (A, B ou C): ").lower()
+        if faute_input in opt_equipe:
+            condition = True
+            nb_fautes = input("Ecrire le nb de jouer (): ")
+            print(nb_fautes)
+        else:
+            print("Invalid option")
+
+        # with open('fautes_équipe_'+faute_input+'.txt', "w") as file:
+        #     nb_fautes
+
+menu_utilisateur()
