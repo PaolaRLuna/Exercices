@@ -65,112 +65,200 @@ def read_data3():
 #     return moy_equipe
 
 #moyenne(read_data1(),read_data2(), read_data3())
-def get_moyenne(data1, data2, data3):
-    data = data1, data2, data3
-    # equipes = data1[0], data2[0], data3[0]
 
-    avgs= []
-    for i in data:
-        equipe = i[1:]
-        sum = 0
-        for j in equipe:
-            sum = sum + j
-        moyenne = sum / len(equipe)
-        avgs.append(moyenne)
-    return avgs
+# def get_moyenne(data1, data2, data3):
+#     data = data1, data2, data3
+
+#     avgs= []
+#     for i in data:
+#         equipe = i[1:]
+#         sum = 0
+#         for j in equipe:
+#             sum = sum + j
+#         moyenne = sum / len(equipe)
+#         avgs.append(moyenne)
+#     return avgs
 
 
-def ecart_type(data1, data2, data3):
+# def ecart_type(data1, data2, data3):
+
+#     data = data1, data2, data3
+#     equipes = data1[0], data2[0], data3[0]
+#     mean = get_moyenne(read_data1(),read_data2(), read_data3())
+    
+#     eq = []
+#     for i in data:
+#         equipe = i[1:]
+#         eq.append(equipe)
+
+#     ecarts = []
+#     tup = zip(eq, mean)
+#     for equipe, m in tup:
+#         sum = 0
+#         nb_donnees = len(equipe) - 1
+#         for item in equipe:
+#             oper = item - m
+#             sum += oper ** 2
+#         ec_t = (sum / nb_donnees) ** 0.5
+#         ecarts.append(ec_t)
+
+#     ecart = list(zip(ecarts, equipes))
+
+#     return ecart
+
+
+# def minimum():
+
+#     ecarts = ecart_type(read_data1(),read_data2(), read_data3())
+    
+#     min_number = ecarts[0]
+
+#     for ecart in ecarts:
+#         if ecart[0] < min_number[0]:
+#             min_number = ecart
+#     return min_number
+
+# def affichage_homogene():
+    
+#     ecart, equipe = minimum()
+#     print(f"{equipe}, écart type: {ecart:.3f}")
+
+# def menu_utilisateur():
+
+#     menu = {1 : "Afficher les statistiques", 
+#             2 : "afficher l'équipe la plus homogène",
+#             3 : "Ajouter une faute à une équipe", 
+#             4 : "Sauvegarder les statistiques",
+#             5 : "Sortir" }
+
+
+#     for key, value in menu.items():
+#         print(f"{key}.{value}")
+
+#     choix_user = int(input("Choisir une option: "))
+#     condition = False
+#     while not condition:
+#         if choix_user == 1:
+#             condition = True
+#             affichage_homogene()
+#         elif choix_user == 2:
+#             affichage_homogene()
+#             condition = True
+#         elif choix_user == 3:
+#             submenu()
+#             condition = True
+#         elif choix_user == 4:
+#             sauvegarde_stats()
+#             condition = True
+#         elif choix_user == 5:
+#             condition = True
+#             exit()
+#         else:
+#             print("Invalid option")
+
+# def submenu():
+
+#     condition = False
+#     while not condition:
+        
+#         opt_equipe = ["A", "B", "C"]
+#         print("\n SUB MENU")
+#         faute_input = input("Écrire lettre de l'équipe (A, B ou C) ou entree pour sortir: ").upper()
+#         if faute_input in opt_equipe:
+#             while not condition:
+#                 nb_fautes = input("Ecrire nb jouer avec la faute, ecrire plusieurs et les separer avec comma (Ex. 23 - faute offensive): ").split(",")
+#                 if nb_fautes == ['']: 
+#                     condition = False
+#                 else:
+#                     with open('fautes_équipe_'+ faute_input +'.txt', "w") as file:
+#                         delimiter = ""
+#                         for item in nb_fautes:
+#                             faute = delimiter.join(i for i in item) + "\n"
+#                             file.write(faute)
+#                             condition = True
+#                             print('Fichier .txt cree')
+#         else:
+#             condition = True
+#             menu_utilisateur()
+
+
+def plus_rapide(data1, data2, data3):
 
     data = data1, data2, data3
     equipes = data1[0], data2[0], data3[0]
-    mean = get_moyenne(read_data1(),read_data2(), read_data3())
+
+    maxeq = []
+    for value in data:
+        temps_equipe = value[1:]
+        max_number = temps_equipe[0]
+        for donnee in temps_equipe:
+            if donnee > max_number:
+                max_number = donnee
+        maxeq.append(max_number)
+
+    max_equipe_list = zip(equipes,maxeq)
+
+    max_number = max_equipe_list[0]
+
+    for item in max_equipe_list:
+        if item[1] > max_number[1]:
+            max_number = item
+    return max_number
+
+def pr(data1, data2, data3):
+    data = data1, data2, data3
+    equipes = data1[0], data2[0], data3[0]
+
+    maxlist = []
+    for value in data:
+        max_val = max(value[1:])
+        maxlist.append(max_val)
     
-    eq = []
-    for i in data:
-        equipe = i[1:]
-        eq.append(equipe)
+    max_equipe = zip(equipes,maxlist)
+    equipe_rapide = max(max_equipe)
+    return equipe_rapide
 
-    ecarts = []
-    tup = zip(eq, mean)
-    for equipe, m in tup:
-        sum = 0
-        nb_donnees = len(equipe) - 1
-        for item in equipe:
-            oper = item - m
-            sum += oper ** 2
-        ec_t = (sum / nb_donnees) ** 0.5
-        ecarts.append(ec_t)
+#print(pr(read_data1(),read_data2(), read_data3()))
+print(plus_rapide(read_data1(),read_data2(), read_data3()))
+# def coureur_rapide():
 
-    ecart = list(zip(ecarts, equipes))
+#     equipe = plus_rapide(read_data1(),read_data2(), read_data3())
+#     gagnant = equipe[0],equipe[1]
+#     return gagnant
 
-    return ecart
+# def moyenne_trie():
+#     data1, data2, data3 = read_data1(),read_data2(), read_data3()
+#     avgs = get_moyenne(read_data1(),read_data2(), read_data3())
+#     equipes = data1[0], data2[0], data3[0]
 
+#     moy_equipe = zip(avgs, equipes)
+#     moy_equipe = sorted(moy_equipe)
 
-def minimum():
+#     return moy_equipe
 
-    ecarts = ecart_type(read_data1(),read_data2(), read_data3())
+# def affichage_stats():
+
+#     moy_equipe = moyenne_trie()
     
-    min_number = ecarts[0]
+#     for moy, equipe in moy_equipe:
+#         print(f"{equipe}: {moy:.2f}s")
 
-    for ecart in ecarts:
-        if ecart[0] < min_number[0]:
-            min_number = ecart
-    return min_number
-
-def affichage_homogene():
+#     eq, sec = coureur_rapide()
+#     print(f"Coureur gagnant: {eq} ({sec} secondes)")
     
-    ecart, equipe = minimum()
-    print(f"{equipe}, écart type: {ecart:.3f}")
 
-def menu_utilisateur():
+# def sauvegarde_stats():
 
-    menu = {1 : "Afficher les statistiques", 
-            2 : "afficher l'équipe la plus homogène",
-            3 : "Ajouter une faute à une équipe", 
-            4 : "Sauvegarder les statistiques",
-            5 : "Sortir" }
+#     moy_equipe = moyenne_trie()
+#     fastest = coureur_rapide()
 
+#     statsfile = open("stats.txt", "w", encoding='utf8')
 
-    for key, value in menu.items():
-        print(f"{key}.{value}")
+#     print(f"Coureur rapide: {fastest}",file=statsfile)
+#     for m in moy_equipe:
+#         print(f"Moyenne: {m}", file=statsfile)
+    
+#     print("Fichier stats.txt cree")
+#     statsfile.close()
 
-    choix_user = int(input("Choisir une option: "))
-    condition = False
-    while not condition:
-        if choix_user == 1:
-            condition = True
-            affichage_homogene()
-        elif choix_user == 3:
-            submenu()
-            condition = True
-
-def submenu():
-
-    condition = False
-    while not condition:
-        
-        opt_equipe = ["a", "b", "c"]
-        print("\n SUB MENU")
-        faute_input = input("Écrire lettre de l'équipe (A, B ou C) ou entree pour sortir: ").lower()
-        if faute_input in opt_equipe:
-            while not condition:
-                nb_fautes = input("Ecrire nb jouer avec la faute, ecrire plusieurs et les separer avec comma (Ex. 23 - faute offensive): ").split(",")
-                if nb_fautes == "": 
-                    condition = False
-                else:
-                    with open('fautes_équipe_'+ faute_input +'.txt', "w") as file:
-                        delimiter = ""
-                        for item in nb_fautes:
-                            faute = delimiter.join(i for i in item) + "\n"
-                            file.write(faute)
-                            condition = True
-                            print('Fichier txt cree')
-        else:
-            condition = True
-            menu_utilisateur()
-
-
-        
-
-menu_utilisateur()
+# menu_utilisateur()
