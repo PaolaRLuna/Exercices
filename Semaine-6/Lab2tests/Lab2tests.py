@@ -131,6 +131,7 @@ def menu_utilisateur():
             4 : "Sauvegarder les statistiques",
             5 : "Sortir" }
 
+
     for key, value in menu.items():
         print(f"{key}.{value}")
 
@@ -142,6 +143,7 @@ def menu_utilisateur():
             affichage_homogene()
         elif choix_user == 3:
             submenu()
+            condition = True
 
 def submenu():
 
@@ -150,15 +152,25 @@ def submenu():
         
         opt_equipe = ["a", "b", "c"]
         print("\n SUB MENU")
-        faute_input = input("Écrire lettre de l'équipe (A, B ou C): ").lower()
+        faute_input = input("Écrire lettre de l'équipe (A, B ou C) ou entree pour sortir: ").lower()
         if faute_input in opt_equipe:
-            condition = True
-            nb_fautes = input("Ecrire le nb de jouer (): ")
-            print(nb_fautes)
+            while not condition:
+                nb_fautes = input("Ecrire nb jouer avec la faute, ecrire plusieurs et les separer avec comma (Ex. 23 - faute offensive): ").split(",")
+                if nb_fautes == "": 
+                    condition = False
+                else:
+                    with open('fautes_équipe_'+ faute_input +'.txt', "w") as file:
+                        delimiter = ""
+                        for item in nb_fautes:
+                            faute = delimiter.join(i for i in item) + "\n"
+                            file.write(faute)
+                            condition = True
+                            print('Fichier txt cree')
         else:
-            print("Invalid option")
+            condition = True
+            menu_utilisateur()
 
-        # with open('fautes_équipe_'+faute_input+'.txt', "w") as file:
-        #     nb_fautes
+
+        
 
 menu_utilisateur()
