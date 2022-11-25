@@ -66,18 +66,18 @@ def read_data3():
 
 #moyenne(read_data1(),read_data2(), read_data3())
 
-# def get_moyenne(data1, data2, data3):
-#     data = data1, data2, data3
+def get_moyenne(data1, data2, data3):
+    data = data1, data2, data3
 
-#     avgs= []
-#     for i in data:
-#         equipe = i[1:]
-#         sum = 0
-#         for j in equipe:
-#             sum = sum + j
-#         moyenne = sum / len(equipe)
-#         avgs.append(moyenne)
-#     return avgs
+    avgs= []
+    for i in data:
+        equipe = i[1:]
+        sum = 0
+        for j in equipe:
+            sum = sum + j
+        moyenne = sum / len(equipe)
+        avgs.append(moyenne)
+    return avgs
 
 
 # def ecart_type(data1, data2, data3):
@@ -196,7 +196,7 @@ def plus_rapide(data1, data2, data3):
                 max_number = donnee
         maxeq.append(max_number)
 
-    max_equipe_list = zip(equipes,maxeq)
+    max_equipe_list = list(zip(equipes,maxeq))
 
     max_number = max_equipe_list[0]
 
@@ -205,37 +205,57 @@ def plus_rapide(data1, data2, data3):
             max_number = item
     return max_number
 
-def pr(data1, data2, data3):
-    data = data1, data2, data3
-    equipes = data1[0], data2[0], data3[0]
+# def pr(data1, data2, data3):
+#     data = data1, data2, data3
+#     equipes = data1[0], data2[0], data3[0]
 
-    maxlist = []
-    for value in data:
-        max_val = max(value[1:])
-        maxlist.append(max_val)
+#     maxlist = []
+#     for value in data:
+#         max_val = max(value[1:])
+#         maxlist.append(max_val)
     
-    max_equipe = zip(equipes,maxlist)
-    equipe_rapide = max(max_equipe)
-    return equipe_rapide
+#     max_equipe = zip(equipes,maxlist)
+#     equipe_rapide = max(max_equipe)
+#     return equipe_rapide
 
 #print(pr(read_data1(),read_data2(), read_data3()))
-print(plus_rapide(read_data1(),read_data2(), read_data3()))
+#print(plus_rapide(read_data1(),read_data2(), read_data3()))
+
 # def coureur_rapide():
 
 #     equipe = plus_rapide(read_data1(),read_data2(), read_data3())
 #     gagnant = equipe[0],equipe[1]
 #     return gagnant
 
-# def moyenne_trie():
-#     data1, data2, data3 = read_data1(),read_data2(), read_data3()
-#     avgs = get_moyenne(read_data1(),read_data2(), read_data3())
-#     equipes = data1[0], data2[0], data3[0]
+def moyenne_trie():
+    data1, data2, data3 = read_data1(),read_data2(), read_data3()
+    avgs = get_moyenne(read_data1(),read_data2(), read_data3())
+    equipes = data1[0], data2[0], data3[0]
 
-#     moy_equipe = zip(avgs, equipes)
-#     moy_equipe = sorted(moy_equipe)
+    moy_equipe = zip(avgs, equipes)
+    moy_equipe = sorted(moy_equipe)
 
-#     return moy_equipe
+    return moy_equipe
 
+#print(moyenne_trie())
+
+def mt():
+
+    data1, data2, data3 = read_data1(),read_data2(), read_data3()
+    avgs = get_moyenne(read_data1(),read_data2(), read_data3())
+    equipes = data1[0], data2[0], data3[0]
+
+    moy_equipe = list(zip(equipes, avgs))
+    lenmoy = len(moy_equipe)
+
+    for tupl in range(0, lenmoy):
+        for elem in range(tupl + 1, lenmoy):
+            if moy_equipe[tupl][1] > moy_equipe[elem][1]:
+                moy_equipe[tupl],moy_equipe[elem] = moy_equipe[elem], moy_equipe[tupl]
+
+    return moy_equipe
+    
+print(mt())
 # def affichage_stats():
 
 #     moy_equipe = moyenne_trie()
