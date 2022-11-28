@@ -9,12 +9,7 @@
 # sélection, afficher le nom de l'enseignant et le nom du cours à l'écran.
 
 def data():
-
-    choisir = { 1 : "Choisir un cours",
-            2 : "Chercher un enseignant",
-            3 : "Ajouter un cours et un prof"
-            }
-    
+   
     cours = { 1 : "Concepts de programmation 1",
             2 : "Logique mathématique",
             3 : "Systèmes d'exploitation",
@@ -29,10 +24,37 @@ def data():
 
     return choisir, cours, prof
 
+def fichier():
+
+    _, cours, prof = data()
+    courses = cours.values()
+    profs = prof.values()
+
+    infos = {}
+    for c, p in list(zip(courses, profs)):
+        infos [c] = p
+
+    with open("bdd.txt", "w", encoding='utf8') as fichier:
+
+        #https://stackoverflow.com/questions/34069702/write-dict-to-file-with-each-key-value-pair-on-a-separate-line
+        #Auteur: JCVanHamme
+        #Idée de comment imprimer dans un fichier à partir du dictionnaire
+        for matiere, prof in infos.items():
+            print(f"{matiere} \n{prof}", file=fichier)
+
+    return infos
+
+def read_file():
+    
+    
+
 def menu():
 
-    choisir, _, _ = data()
-    
+    choisir = { 1 : "Choisir un cours",
+            2 : "Chercher un enseignant",
+            3 : "Ajouter un cours et un prof"
+            }
+
     condition = False
     while not condition:
 
@@ -81,30 +103,6 @@ def submenu_choisir():
 # Nom de cours 2
 #ds1: dict[int, str]
 
-def fichier():
-
-    _, cours, prof = data()
-    courses = cours.values()
-    profs = prof.values()
-
-    infos = {}
-    for c, p in list(zip(courses, profs)):
-        infos [c] = p
-
-    with open("bdd.txt", "w", encoding='utf8') as fichier:
-
-        #https://stackoverflow.com/questions/34069702/write-dict-to-file-with-each-key-value-pair-on-a-separate-line
-        #Auteur: JCVanHamme
-        #Idée de comment imprimer dans un fichier à partir du dictionnaire
-        for matiere, prof in infos.items():
-            print(f"{matiere} \n{prof}", file=fichier)
-
-
-    return infos
-
-def read_file():
-    pass
-
 # Partie 3:
 
 #En se basant sur la partie 2, modifier le menu utilisateur en y ajoutant une option lui permettant de faire une recherche d'enseignant. 
@@ -137,9 +135,9 @@ menu()
 
 def input_user():
 
-    _, cours, prof = data()
+    cours, prof = data()
 
-    with open("bdd.txt","r", encoding='utf8')
+    with open("bdd.txt","a", encoding='utf8') as append_file:
     infos = fichier()
     condition = False
     while not condition:
