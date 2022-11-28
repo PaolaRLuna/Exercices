@@ -46,7 +46,7 @@ def fichier():
 
 def read_file():
     
-    
+    pass
 
 def menu():
 
