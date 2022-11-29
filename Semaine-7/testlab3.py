@@ -30,10 +30,11 @@ def menu_utilisateur():
 
         user_input = input("Choisir un numéro (Ex. 1): ")
         if user_input == "1":
-            paquet = brassage_intercoupe(paquet)
-            print(paquet)
+            affichage_etat_jeu(paquet)
         elif user_input == "2":
             paquet = brassage_intercoupe(paquet)
+        elif user_input == "3":
+            paquet = brassage_paquets(paquet)
             print(paquet)
         else:
             condition = True
@@ -55,19 +56,38 @@ def brassage_intercoupe(deck:list[str]):
     return deck_brasse
 
 def brassage_paquets(cartes:list[str]):
-    #packagefour = len(cartes) // 13
-
+ 
+    len_cartes = len(cartes)
     deck_brasse = []
-    for i in range(1, len(cartes), 4):
-        deck_brasse = cartes[i : i + 4]
-        deck_brasse.append()
+    for i in range(0, len_cartes, 4):
+        deck_de_quatre = cartes[i : i + 4]
+        deck_brasse.append(deck_de_quatre)
 
     #https://stackoverflow.com/questions/65773707/how-to-change-the-index-of-an-element-in-a-list-array-to-another-position-index
     #Auteur: Grigol Peradze
-    #Comment changer l'index d'un element dans une liste à une autre position.
+    #Idée de comment changer l'index d'un element dans une liste à une autre position.
     order = [7, 1, 3, 13, 2, 4, 11, 6, 8, 5, 12, 10, 9]
-    deck_brasse_update = [deck_brasse[idx] for idx in order]
+    deck_brasse_update = []
+    for idx in order:
+        paquet = deck_brasse[idx-1]
+        deck_brasse_update.append(paquet)
 
-    return deck_brasse_update
+    deck_entier = []
+    for cartes in deck_brasse_update:
+        for carte in cartes:
+            deck_entier.append(carte)
+
+    return deck_entier
+
+def affichage_etat_jeu(cartes:list[str]):
+    
+    #https://stackoverflow.com/questions/312443/how-do-i-split-a-list-into-equally-sized-chunks
+    #Auteur: Mateen Ulhaq
+    #Idée pour diviser les cartes en 4 lignes de 13
+    for paquet13 in range(0, len(cartes), 13):
+        for paquet in range(paquet13):
+            print(' '.join(paquet)+'\n')
+            #print(f'{cartes[i : i + 13]}')
+
 
 menu_utilisateur()
