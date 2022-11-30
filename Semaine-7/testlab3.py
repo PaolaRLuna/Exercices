@@ -39,6 +39,7 @@ def menu_utilisateur():
             print(paquet)
         else:
             condition = True
+            sauvegarder_fichier(paquet)
 
 def brassage_intercoupe(deck:list[str]):
 
@@ -89,9 +90,18 @@ def affichage_etat_jeu(cartes:list[str]):
     
     # carte_split = [cartes[carte: carte + paquet_long] for carte in range(0,len(cartes),paquet_long)]
     # print("\n".join(carte_split))
-        #print(f"{ligne}\n", end=' ')
-    #    print(' '.join(paquet)+'\n', end=' ')
-            #print(f'{cartes[i : i + 13]}')
 
+def sauvegarder_fichier(cartes:list[str]):
+
+    with open('cards.txt', "w", encoding='utf8') as fichier:
+        
+        for carte in range(0, len(cartes), 13):
+            ligne = cartes[carte: carte + 13]
+            for item in range(0,len(ligne)):
+                print(" ".join(item), file=fichier)
+
+            #file.write(ligne)
+
+            print('Fichier .txt cree')
 
 menu_utilisateur()
