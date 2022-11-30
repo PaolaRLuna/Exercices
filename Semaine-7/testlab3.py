@@ -82,9 +82,6 @@ def brassage_paquets(cartes:list[str]):
 
 def affichage_etat_jeu(cartes:list[str]):
     
-    #https://stackoverflow.com/questions/312443/how-do-i-split-a-list-into-equally-sized-chunks
-    #Auteur: Mateen Ulhaq
-    #Idée pour diviser les cartes en 4 lignes de 13
     paquet_long = 13
     for carte in range(0, len(cartes), paquet_long):
         ligne = cartes[carte: carte + paquet_long]
