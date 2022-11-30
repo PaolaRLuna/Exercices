@@ -16,7 +16,7 @@ def creation_cartes():
 def menu_utilisateur():
 
     paquet = creation_cartes()
-    #print(paquet)
+
     choix = { 1 : "Afficher l'état du jeu de carte",
             2 : "Effectuer un brassage inter-coupé",
             3 : "Effectuer un brassage par paquets",
@@ -97,11 +97,15 @@ def sauvegarder_fichier(cartes:list[str]):
         
         for carte in range(0, len(cartes), 13):
             ligne = cartes[carte: carte + 13]
-            for item in range(0,len(ligne)):
-                print(" ".join(item), file=fichier)
-
-            #file.write(ligne)
-
-            print('Fichier .txt cree')
+            #https://stackoverflow.com/questions/50608207/print-5-elements-of-a-list-per-line
+            #Auteur:
+            #Idee de comment utiliser modulo pour imprimer
+            for i, card in enumerate(ligne):
+                if (i + 1) % 13 == 0:
+                    print(card + "\n", file=fichier)
+                else:
+                    print(card, end=" ", file=fichier)
+    
+        print('Fichier .txt cree')
 
 menu_utilisateur()
