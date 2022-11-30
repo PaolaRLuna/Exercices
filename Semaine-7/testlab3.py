@@ -2,7 +2,6 @@ def creation_cartes():
 
     SUITS = ("♦", "♣", "♥", "♠")
 
-#    suits = ["D", "C", "H", "S"]
     CARD_TYPE = ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K")
 
     card_deck = []
@@ -36,7 +35,6 @@ def menu_utilisateur():
             paquet = brassage_intercoupe(paquet)
         elif user_input == "3":
             paquet = brassage_paquets(paquet)
-            print(paquet)
         else:
             condition = True
             sauvegarder_fichier(paquet)
@@ -57,6 +55,7 @@ def brassage_intercoupe(deck:list[str]):
 
     return deck_brasse
 
+
 def brassage_paquets(cartes:list[str]):
  
     len_cartes = len(cartes)
@@ -72,7 +71,7 @@ def brassage_paquets(cartes:list[str]):
     deck_brasse_update = []
     for idx in order:
         paquet = deck_brasse[idx-1]
-        deck_brasse_update.extend(paquet)
+        deck_brasse_update.extend(paquet) # adds at the end without the brackets
 
     # deck_entier = []
     # for cartes in deck_brasse_update:

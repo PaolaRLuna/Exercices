@@ -22,7 +22,7 @@ def data():
              4 : "Anna Claudia Onofri" 
             }
 
-    return choisir, cours, prof
+    return cours, prof
 
 def fichier():
 
@@ -138,14 +138,14 @@ def input_user():
     cours, prof = data()
 
     with open("bdd.txt","a", encoding='utf8') as append_file:
-    infos = fichier()
-    condition = False
-    while not condition:
-        ajout_cours = input("Ajouter un nom de cours: ")
-        ajout_enseignant = input("Ajouter un enseignant")
-        infos[ajout_cours] = ajout_enseignant
+        infos = fichier()
+        condition = False
+        while not condition:
+            ajout_cours = input("Ajouter un nom de cours: ")
+            ajout_enseignant = input("Ajouter un enseignant")
+            infos[ajout_cours] = ajout_enseignant
 
-        with open("bdd.txt", "a", encoding='utf8') as fichier:
+        #with open("bdd.txt", "a", encoding='utf8') as fichier:
 
 # if __name__ == '__main__':
 #     output()
