@@ -3,7 +3,7 @@
 def triage (n1, n2, n3, n4):
 
     min_v = min(n1, n2, n3, n4)
-    max_v = max(n1, n2, n3, n4) 
+    max_v = max(n1, n2, n3, n4)  
     
     if n1 == min_v:
         if n2 == max_v:
