@@ -16,6 +16,7 @@ def creation_cartes():
 def menu_utilisateur():
 
     paquet = creation_cartes()
+    #print(paquet)
     choix = { 1 : "Afficher l'état du jeu de carte",
             2 : "Effectuer un brassage inter-coupé",
             3 : "Effectuer un brassage par paquets",
@@ -70,23 +71,29 @@ def brassage_paquets(cartes:list[str]):
     deck_brasse_update = []
     for idx in order:
         paquet = deck_brasse[idx-1]
-        deck_brasse_update.append(paquet)
+        deck_brasse_update.extend(paquet)
 
-    deck_entier = []
-    for cartes in deck_brasse_update:
-        for carte in cartes:
-            deck_entier.append(carte)
+    # deck_entier = []
+    # for cartes in deck_brasse_update:
+    #     for carte in cartes:
+    #         deck_entier.append(carte)
 
-    return deck_entier
+    return deck_brasse_update
 
 def affichage_etat_jeu(cartes:list[str]):
     
     #https://stackoverflow.com/questions/312443/how-do-i-split-a-list-into-equally-sized-chunks
     #Auteur: Mateen Ulhaq
     #Idée pour diviser les cartes en 4 lignes de 13
-    for paquet13 in range(0, len(cartes), 13):
-        for paquet in range(paquet13):
-            print(' '.join(paquet)+'\n')
+    paquet_long = 13
+    for carte in range(0, len(cartes), paquet_long):
+        ligne = cartes[carte: carte + paquet_long]
+        print(" ".join(ligne))
+    
+    # carte_split = [cartes[carte: carte + paquet_long] for carte in range(0,len(cartes),paquet_long)]
+    # print("\n".join(carte_split))
+        #print(f"{ligne}\n", end=' ')
+    #    print(' '.join(paquet)+'\n', end=' ')
             #print(f'{cartes[i : i + 13]}')
 
 
