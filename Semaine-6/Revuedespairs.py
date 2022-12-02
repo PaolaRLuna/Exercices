@@ -24,14 +24,14 @@ def data():
 
     return cours, prof
 
-def fichier(cours : dict, profs : dict):
+def fichier(cours : dict, prof : dict):
 
     _, cours, prof = data()
     courses = cours.values()
-    profs = profs.values()
+    prof = prof.values()
 
     infos = {}
-    for c, p in list(zip(courses, profs)):
+    for c, p in list(zip(courses, prof)):
         infos [c] = p
 
     with open("bdd.txt", "w", encoding='utf8') as fichier:
@@ -72,7 +72,7 @@ def menu():
         else:
             condition = True
 
-def submenu_choisir():
+def submenu_choisir(cours : dict, prof : dict):
 
     _, cours, prof = data()
         
