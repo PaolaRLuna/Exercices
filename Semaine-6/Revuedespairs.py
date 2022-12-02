@@ -24,11 +24,11 @@ def data():
 
     return cours, prof
 
-def fichier():
+def fichier(cours : dict, profs : dict):
 
     _, cours, prof = data()
     courses = cours.values()
-    profs = prof.values()
+    profs = profs.values()
 
     infos = {}
     for c, p in list(zip(courses, profs)):
