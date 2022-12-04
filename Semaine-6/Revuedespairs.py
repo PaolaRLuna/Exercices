@@ -26,6 +26,7 @@ def data():
 
 
 def course_prof_dic_tup(cours:dict, prof: dict):
+    
     courses = cours.values()
     prof = prof.values()
     infos = {}
@@ -37,7 +38,7 @@ def course_prof_dic_tup(cours:dict, prof: dict):
 def fichier():
 
     cours, prof = data()
-    infos = course_prof_dic_tup(cours,prof)
+    infos = course_prof_dic_tup(cours, prof)
 
     with open("bdd.txt", "w", encoding='utf8') as fichier:
 
@@ -46,7 +47,6 @@ def fichier():
         #Idée de comment imprimer dans un fichier à partir du dictionnaire
         for matiere, prof in infos.items():
             print(f"{matiere} \n{prof}", file=fichier)
-
 
 
 def read_file():
@@ -74,7 +74,6 @@ def read_file():
 
 def menu():
     fichier()
-    cours, prof = read_file()
 
     choisir = { 1 : "Choisir un cours",
             2 : "Chercher un enseignant",
@@ -89,6 +88,7 @@ def menu():
         for key, value in choisir.items():
             print(f"{key}.{value}")
 
+        cours, prof = read_file()
         user_input = int(input("Choisir un numéro (Ex. 1): "))
         match user_input:
             case 1:
@@ -111,18 +111,21 @@ def submenu_choisir(cours : dict, prof : dict):
 
     condition = False
     while not condition:
-        user_input = input("Choisir un cours (Ex. 1): ")
-        if user_input == "1":
-            print(f"{cours.get(1)} - {prof.get(1)}")
-        elif user_input == "2":
-            print(f"{cours.get(2)} - {prof.get(2)}")
-        elif user_input == "3":
-            print(f"{cours.get(3)} - {prof.get(3)}")
-        elif user_input == "4":
-            condition = True
-            print(f"{cours.get(4)} - {prof.get(4)}")
+        user_input = int(input("Choisir un cours (Ex. 1): "))
+        if user_input in cours.keys():
+            print(f"{cours.get(user_input)} - {prof.get(user_input)}")
+        # if user_input == "1":
+        #     print(f"{cours.get(1)} - {prof.get(1)}")
+        # elif user_input == "2":
+        #     print(f"{cours.get(2)} - {prof.get(2)}")
+        # elif user_input == "3":
+        #     print(f"{cours.get(3)} - {prof.get(3)}")
+        # elif user_input == "4":
+        #     condition = True
+        #     print(f"{cours.get(4)} - {prof.get(4)}")
         else:
             print("Choix invalide")
+            condition = True
 
 
 # Partie 2:
@@ -147,9 +150,9 @@ def search(profs:dict[str,str]):
         if search_user == '':
             condition = True
         #https://stackoverflow.com/questions/17340922/how-to-search-if-dictionary-value-contains-certain-string-with-python
-        #for value in donnees.values():
-        #   if search_user in donnees:
-        #   print(f"L'enseignant {value} est dans la liste")
+        # for value in profs.values():
+        #     if search_user in value:
+        #         print(f"L'enseignant {value} est dans la liste")
 #         #https://stackoverflow.com/questions/18763905/print-out-message-only-once-from-the-for-loop
 #         #Auteur: HennyH
 #         #Idee de comment retourner une seule fois un print
@@ -164,17 +167,22 @@ def search(profs:dict[str,str]):
 
 # Offrir à l'utilisateur une nouvelle option au menu lui permettant d'ajouter un cours et un nom d'enseignant à la base de données de la partie 2. 
 # Une fois les données utilisateurs entrées, ajouter les informations à la fin du document bdd.txt
+def sauvegarder_enseignant():
+     with open("bdd.txt","a", encoding='utf8') as fichier:
+        ajout_cours = input("Ajouter un nom de cours: ")
+        fichier.write(f"{ajout_cours}\n")
+        ajout_enseignant = input("Ajouter un enseignant: ")
+        fichier.write(f"{ajout_enseignant}\n")
 
 def input_user():
 
-    with open("bdd.txt","a", encoding='utf8') as fichier:
-        condition = False
-        while not condition:
-            ajout_cours = input("Ajouter un nom de cours: ")
-            fichier.write(f"{ajout_cours}\n")
-            ajout_enseignant = input("Ajouter un enseignant")
-            fichier.write(f"{ajout_enseignant}\n")
-            condition = True
+        sortie = False
+        while not sortie:
+            sauvegarder_enseignant()
+            choix = input("Voulez-vous entrer un autre cours et enseignant ? oui/non: ").lower
+
+            if not (choix =="oui"):
+                sortie = True
 
 menu()
 # if __name__ == '__main__':
