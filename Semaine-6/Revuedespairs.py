@@ -44,9 +44,22 @@ def fichier(cours : dict, prof : dict):
 
     return infos
 
-def read_file():
+def read_file(path : str):
     
-    pass
+    with open(path, "r", encoding='utf8') as fichier:
+
+        d_cours = []
+        d_profs = []
+        donees = fichier.readlines
+        
+        for i, ligne in enumerate(donees):
+            if i % 2 == 1:
+                cours = ligne.strip()
+            elif i % 2 == 0:
+                prof = ligne.strip()
+            d_cours.append(cours)
+            d_profs.append(prof)
+    return d_cours, d_profs
 
 def menu():
 
@@ -72,9 +85,17 @@ def menu():
         else:
             condition = True
 
+def creation_choix():
+
+    cours, profs = read_file("bdd.txt")
+
+    cours = { k+1 : v for k, v in cours }
+    profs = { k+1 : v for k, v in profs }
+    return cours, profs
+
 def submenu_choisir(cours : dict, prof : dict):
 
-    _, cours, prof = data()
+    cours, prof = creation_choix()
         
     print("\nSUB MENU")
     for key, value in cours.items():
@@ -126,7 +147,7 @@ def search(donnees:dict[str,str]):
             print("Not found")
 
 
-menu()
+
 
 # Partie 4:
 
@@ -135,17 +156,15 @@ menu()
 
 def input_user():
 
-    cours, prof = data()
-
-    with open("bdd.txt","a", encoding='utf8') as append_file:
-        infos = fichier()
+    with open("bdd.txt","a", encoding='utf8') as fichier:
         condition = False
         while not condition:
             ajout_cours = input("Ajouter un nom de cours: ")
+            fichier.write(f"{ajout_cours}\n")
             ajout_enseignant = input("Ajouter un enseignant")
-            infos[ajout_cours] = ajout_enseignant
+            fichier.write(f"{ajout_enseignant}\n")
+            condition = True
 
-        #with open("bdd.txt", "a", encoding='utf8') as fichier:
-
+menu()
 # if __name__ == '__main__':
 #     output()
