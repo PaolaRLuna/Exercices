@@ -96,7 +96,7 @@ def menu():
             case 2:
                 search(course_prof_dic_tup(cours, prof))
             case 3:
-                pass#input_user()
+                input_user()
             case 4:
                 sortie = True
             case _:
@@ -146,7 +146,10 @@ def search(profs:dict[str,str]):
 
         if search_user == '':
             condition = True
-#https://stackoverflow.com/questions/17340922/how-to-search-if-dictionary-value-contains-certain-string-with-python
+        #https://stackoverflow.com/questions/17340922/how-to-search-if-dictionary-value-contains-certain-string-with-python
+        #for value in donnees.values():
+        #   if search_user in donnees:
+        #   print(f"L'enseignant {value} est dans la liste")
 #         #https://stackoverflow.com/questions/18763905/print-out-message-only-once-from-the-for-loop
 #         #Auteur: HennyH
 #         #Idee de comment retourner une seule fois un print
@@ -156,25 +159,23 @@ def search(profs:dict[str,str]):
         else:
             print("Not found")
 
-menu()
-
 
 # Partie 4:
 
 # Offrir à l'utilisateur une nouvelle option au menu lui permettant d'ajouter un cours et un nom d'enseignant à la base de données de la partie 2. 
 # Une fois les données utilisateurs entrées, ajouter les informations à la fin du document bdd.txt
 
-# def input_user():
+def input_user():
 
-#     with open("bdd.txt","a", encoding='utf8') as fichier:
-#         condition = False
-#         while not condition:
-#             ajout_cours = input("Ajouter un nom de cours: ")
-#             fichier.write(f"{ajout_cours}\n")
-#             ajout_enseignant = input("Ajouter un enseignant")
-#             fichier.write(f"{ajout_enseignant}\n")
-#             condition = True
+    with open("bdd.txt","a", encoding='utf8') as fichier:
+        condition = False
+        while not condition:
+            ajout_cours = input("Ajouter un nom de cours: ")
+            fichier.write(f"{ajout_cours}\n")
+            ajout_enseignant = input("Ajouter un enseignant")
+            fichier.write(f"{ajout_enseignant}\n")
+            condition = True
 
-# menu()
+menu()
 # if __name__ == '__main__':
 #     output()
