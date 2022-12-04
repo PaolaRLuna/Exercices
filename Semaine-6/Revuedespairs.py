@@ -40,7 +40,7 @@ def fichier():
     cours, prof = data()
     infos = course_prof_dic_tup(cours, prof)
 
-    with open("bdd.txt", "w", encoding='utf8') as fichier:
+    with open("Semaine-6/bdd.txt", "w", encoding='utf8') as fichier:
 
         #https://stackoverflow.com/questions/34069702/write-dict-to-file-with-each-key-value-pair-on-a-separate-line
         #Auteur: JCVanHamme
@@ -51,7 +51,7 @@ def fichier():
 
 def read_file():
     
-    with open("bdd.txt", "r", encoding='utf8') as fichier:
+    with open("Semaine-6/bdd.txt", "r", encoding='utf8') as fichier:
         lignes = fichier.readlines()
         d_cours = {}
         d_profs = {}
@@ -168,7 +168,8 @@ def search(profs:dict[str,str]):
 # Offrir à l'utilisateur une nouvelle option au menu lui permettant d'ajouter un cours et un nom d'enseignant à la base de données de la partie 2. 
 # Une fois les données utilisateurs entrées, ajouter les informations à la fin du document bdd.txt
 def sauvegarder_enseignant():
-     with open("bdd.txt","a", encoding='utf8') as fichier:
+    
+     with open("Semaine-6/bdd.txt","a", encoding='utf8') as fichier:
         ajout_cours = input("Ajouter un nom de cours: ")
         fichier.write(f"{ajout_cours}\n")
         ajout_enseignant = input("Ajouter un enseignant: ")
@@ -176,14 +177,14 @@ def sauvegarder_enseignant():
 
 def input_user():
 
-        sortie = False
-        while not sortie:
-            sauvegarder_enseignant()
-            choix = input("Voulez-vous entrer un autre cours et enseignant ? oui/non: ").lower
+    sortie = False
+    while not sortie:
+        sauvegarder_enseignant()
+        choix = input("Voulez-vous entrer un autre cours et enseignant ? oui/non: ").lower()
 
-            if not (choix =="oui"):
-                sortie = True
+        if not (choix == "oui" or choix == "o"):
+            sortie = True
 
-menu()
-# if __name__ == '__main__':
-#     output()
+
+if __name__ == '__main__':
+    menu()
