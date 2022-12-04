@@ -146,6 +146,7 @@ def search(profs:dict[str,str]):
 
         if search_user == '':
             condition = True
+#https://stackoverflow.com/questions/17340922/how-to-search-if-dictionary-value-contains-certain-string-with-python
 #         #https://stackoverflow.com/questions/18763905/print-out-message-only-once-from-the-for-loop
 #         #Auteur: HennyH
 #         #Idee de comment retourner une seule fois un print
