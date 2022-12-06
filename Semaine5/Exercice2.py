@@ -21,10 +21,9 @@ def calculatrice(price_prod_past):
 
     print(IPC_RATIO)
 
-    price_prod_past = 10
-    prix_2022 = IPC_RATIO*price_prod_past
+    prix_2021 = IPC_RATIO*price_prod_past
     #prix_2022 = IPC_1970_2021/100 * PAST_PRICE
-    return price_prod_past, prix_2022
+    return price_prod_past, prix_2021
 
 
 # Partie 2:
@@ -44,7 +43,7 @@ def calculatrice(price_prod_past):
 # dans vos calculs, pour le nombre d'heures en 1970, utilisez le salaire de 1970, alors que pour le nombre d'heures en 2016, utilisez 
 # le salaire minimum de 2021.
 
-def h_travail_par_produit():
+def h_travail_par_produit(price_prod_past):
     price_prod_1970, price_prod_2021 = calculatrice(price_prod_past)
 
     WAGE_1970 = 1.65
@@ -53,9 +52,14 @@ def h_travail_par_produit():
     hours_work_needed_1970 = price_prod_1970/WAGE_1970
     hours_work_needed_2021 = price_prod_2021/WAGE_2021
 
-    return hours_work_needed_1970, hours_work_needed_2021
+    return hours_work_needed_1970, hours_work_needed_2021, price_prod_2021
 
-def imprimer():
-    res_1970, res_2021 = h_travail_par_produit()
+def imprimer(price1970):
+    hrs_per_prod_1970, hrs_per_prod_2021, price2021 = h_travail_par_produit(price1970)
     
-    print(f"Le nombre d'heures de travail pour payer un article qui coute {} est {}")
+    print(f"Un produit qui coutait {price1970} en 1970, coute {price2021:.2f} en 2021")
+    print(f"Le nombre d'hrs de travail pour payer un article en 1970 qui cout {price1970} est {hrs_per_prod_1970:.2f}")
+    print(f"Le nombre d'hrs de travail pour payer un article en 2021 qui cout {price2021:.2f} est {hrs_per_prod_2021:.2f}")
+
+
+imprimer(10)
