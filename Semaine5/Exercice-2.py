@@ -17,19 +17,15 @@ def read_file():
 
         annee = []
         cpi = []
-        #https://stackoverflow.com/questions/10711116/strip-spaces-tabs-newlines-python
-        #Auteur: Rosstripi
-        #replace tabs
+        
         for donnee in donnees:
-            donnee.replace('\t', ' ').replace('\n', '')
-            donnees.append(donnee)
-            #donnee.strip('/n')
-        for i, ligne in enumerate(donnees):
-            if i == 0:
-                year = ligne.strip()
-                annee.append(year)
-            else:
-                cpi.append(float(ligne))
+            donnee = donnee.split("\t")
+
+            for i, ligne in enumerate(donnee):
+                if i == 0:
+                    annee.append(ligne)
+                else:
+                    cpi.append(float(ligne))
 
         return annee, cpi
 
