@@ -2,7 +2,7 @@ from time import sleep
 import os
 
 #iteresr a travers une liste de symbols
-#por le lapin ajouter des variables et enlever
+#por le lapin ajouter des variables et enlever espaces
 
 #Permet d'effacer ce qui est afficher à la console.
 #Taken from https://stackoverflow.com/questions/2084508/clear-terminal-in-python
