@@ -19,3 +19,9 @@ def foo(name, /, **kwds):
 
 foo(1, **{'name': 2, 'data' : [1,2,3]})
 foo(1, name = 2, data = [2, 3, 4])
+
+
+def concat(*args, sep="/"):
+    return sep.join(args)
+
+concat("earth", "mars", "venus")
