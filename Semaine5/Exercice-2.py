@@ -31,13 +31,13 @@ def read_file():
 
 read_file()
 
-# def create_datadict(donnees : list[str]):
-#     donnees = read_file()
+def create_datadict(donnees : list[str]):
+    donnees = read_file()
 
-#     ipc = {}
-#     for donnee in donnees:
-#         annee, cpi = donnee.split(' ')
-#         ipc[annee] = cpi
+    ipc = {}
+    for donnee in donnees:
+        annee, cpi = donnee.split(' ')
+        ipc[annee] = cpi
 
 
 
