@@ -46,3 +46,19 @@ class C:
 
 une_instance = C(42)
 une_instance.x
+
+class Vecteur2D:
+    def __init__(self, x0, y0):
+        self.x = x0
+        self.y = y0
+    def __add__(self, second):
+        return Vecteur2D(self.x + second.x, self.y + second.y)
+
+    def __str__(self):
+        return "Vecteur({:g}, {:g})".format(self.x, self.y)
+
+v1 = Vecteur2D(1.2, 2.3)
+v2 = Vecteur2D(3.4, 4.5)
+
+print(v1 + v2)
+
