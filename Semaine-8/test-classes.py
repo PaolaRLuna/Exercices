@@ -50,3 +50,4 @@ personne4 = Personne(age=20)
 personne4.SePresenter()
 #print("estMajeur: ", personne1.EstMajeur())
 #print("nom1 " + personne1.nom)
+
