@@ -14,21 +14,23 @@ class Personne:
         # Je suis majeur
     
         print("Bonjour, je m'appelle " + self.nom + ", j'ai " + str(self.age) + " ans")
-        if self.genre:
-            genre_str = "Masculin"
-        else:
-            genre_str = "Feminin"
+        # if self.genre:
+        #     genre_str = "Masculin"
+        # else:
+        #     genre_str = "Feminin"
+
+        genre_str = "Masculin" if self.genre else "Feminin"
         print(f"Genre: {genre_str}")
 
-        e_optionnel = ""
-        if self.genre == False:
-            e_optionnel = "e"
+        e_optionnel = "" if self.genre else "e"
+        
+        # if self.genre == False:
+        #     e_optionnel = "e"
 
-        if self.genre:
-            if self.EstMajeur():
-                print("Je suis majeur" + e_optionnel)
-            else:
-                print("Je suis mineur" + e_optionnel)
+        if self.EstMajeur():
+            print("Je suis majeur" + e_optionnel)
+        else:
+            print("Je suis mineur" + e_optionnel)
 
         print()
 
