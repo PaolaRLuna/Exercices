@@ -29,23 +29,23 @@
 # #print(C.__dict__)
 # dir(C)
 
-class C:
-    x = 23
-    y = x + 5
-    def affiche(self):
-        self.z = 42
-        print(C.y)
-        print(self.z)
+# class C:
+#     x = 23
+#     y = x + 5
+#     def affiche(self):
+#         self.z = 42
+#         print(C.y)
+#         print(self.z)
 
-obj = C()
-obj.affiche
+# obj = C()
+# obj.affiche
 
-class C:
-    def __init__(self, n):
-        self.x = n
+# class C:
+#     def __init__(self, n):
+#         self.x = n
 
-une_instance = C(42)
-une_instance.x
+# une_instance = C(42)
+# une_instance.x
 
 class Vecteur2D:
     def __init__(self, x0, y0):
