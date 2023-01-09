@@ -20,4 +20,28 @@ class guichet():
             self.balance = self.balance - self.amount
             print(f"{amount} withdrawn")
             print(f"Current balance: {self.balance}")
+
+    def creation_basedonnees(self):
+        with open ("bd.txt", "w", encoding='utf8') as fichier:
+            fichier.write(f"{self.account}\n{self.motdepasse}\n{self.compte}")
+
     
+    def transaction(self):
+        print("""
+            OPÉRATIONS
+         *******************
+         Menu:
+         1. Faire un dépôt
+         2. Faire un retrait
+         3. Voir mon retour de placement
+         4. Terminer
+         """)
+
+        option = input("Entrer votre choix")
+        if option == "1":
+            amount = int(input("Rentrer une quantité"))
+            guichet.deposit()
+        elif option == "2":
+            guichet.withdraw
+
+#source: https://www.bhutanpythoncoders.com/how-to-build-an-atm-program-in-python-with-classes-and-objects/
