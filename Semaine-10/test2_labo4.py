@@ -1,9 +1,9 @@
-class guichet():
-    def __init__(self, account_number, password, compte, balance):
-        self.account = account_number
+class Guichet():
+    def __init__(self, bd, current_account_number, password, balance):
+        self.infos_users = bd
+        self.account = current_account_number
         self.motdepasse = password
-        self.compte = compte
-        self.balance
+        self.balance = balance
 
     def deposit(self, amount):
         self.amount = amount
@@ -23,10 +23,19 @@ class guichet():
 
     def creation_basedonnees(self):
         with open ("bd.txt", "w", encoding='utf8') as fichier:
-            fichier.write(f"{self.account}\n{self.motdepasse}\n{self.compte}")
+            fichier.write(f"{self.account}\n{self.motdepasse}\n")
 
     
-    def transaction(self):
+    
+
+#source: https://www.bhutanpythoncoders.com/how-to-build-an-atm-program-in-python-with-classes-and-objects/
+
+class Client:
+    def __init__(self, account, password):
+        self.account = account
+        self.mdp = password
+
+    def transaction(self, amount):
         print("""
             OPÉRATIONS
          *******************
@@ -39,9 +48,8 @@ class guichet():
 
         option = input("Entrer votre choix")
         if option == "1":
-            amount = int(input("Rentrer une quantité"))
-            guichet.deposit()
+            self.amount = int(input("Rentrer une quantité"))
+            Guichet.deposit()
         elif option == "2":
-            guichet.withdraw
+            Guichet.withdraw()
 
-#source: https://www.bhutanpythoncoders.com/how-to-build-an-atm-program-in-python-with-classes-and-objects/

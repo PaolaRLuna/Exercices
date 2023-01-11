@@ -1,34 +1,42 @@
-def compte_utilisateur():
+def read_db():
+    bd = {}
+    with open ("Semaine-10/bd.txt","r", encoding='utf8') as f:
+        for line in f.readlines()[1:]:
+            (key,value) = line.split()
+            bd[int(key)] = value
+    return bd
 
-    sortie = False
-    while not sortie:
-        user_input = input("Choisir un numéro à 4 chiffres (Ex. 1234): ")
-        if len(user_input) != 4 or not user_input.isdigit():
-            print("You must enter 4 digits or the input is not a digit")
-            sortie = False
-        else:
-            mot_de_passe = input("Entrer un mot de passe :")
-            sortie = True
+# def compte_utilisateur():
 
-    if user_input == 0000 and mot_de_passe == "admin":
-        pass
+#     sortie = False
+#     while not sortie:
+#         user_input = input("Choisir un numéro à 4 chiffres (Ex. 1234): ")
+#         if len(user_input) != 4 or not user_input.isdigit():
+#             print("You must enter 4 digits or the input is not a digit")
+#             sortie = False
+#         else:
+#             mot_de_passe = input("Entrer un mot de passe :")
+#             sortie = True
 
-def choisir_compte():
-    compte_utilisateur()
-    choisir = { 1 : "Cheque",
-            2 : "Épargne",
-            3 : "Placement",
-            }
+#     if user_input == 0000 and mot_de_passe == "admin":
+#         pass
+
+# def choisir_compte():
+#     compte_utilisateur()
+#     choisir = { 1 : "Cheque",
+#             2 : "Épargne",
+#             3 : "Placement",
+#             }
         
-    sortie = False
-    while not sortie:
+#     sortie = False
+#     while not sortie:
 
-        print("\nMENU")
-        for key, value in choisir.items():
-            print(f"{key}.{value}")
-        compte_input = input("Choisir un numéro (Ex. 1)")
+#         print("\nMENU")
+#         for key, value in choisir.items():
+#             print(f"{key}.{value}")
+#         compte_input = input("Choisir un numéro (Ex. 1)")
 
-        if compte_input in choisir.keys():
-            sortie = True
-        else:
-            print("Choix invalide")
+#         if compte_input in choisir.keys():
+#             sortie = True
+#         else:
+#             print("Choix invalide")
