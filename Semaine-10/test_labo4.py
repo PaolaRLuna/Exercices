@@ -1,10 +1,15 @@
 def read_db():
     bd = {}
     with open ("Semaine-10/bd.txt","r", encoding='utf8') as f:
-        for line in f.readlines()[1:]:
-            (key,value) = line.split()
-            bd[int(key)] = value
+        for line in f.read().splitlines()[1:]: # en vez de readlines(), porque este ultimo te da un \n al final si se lee de esta manera
+            (key,value) = line.split("\t", maxsplit=1)
+            bd[int(key)] = [val for val in value.split("\t") if val]
     return bd
+
+read_db()
+
+#https://stackoverflow.com/questions/67649685/add-keys-and-values-from-a-text-file-to-a-dictionary
+#https://stackoverflow.com/questions/17038426/splitting-a-string-based-on-tab-in-the-file
 
 # def compte_utilisateur():
 
